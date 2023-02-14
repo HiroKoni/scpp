@@ -1,10 +1,15 @@
 #pragma once
+#include <string>
 namespace SCPP
 {
+    using std::string;
+
     enum class Node_Type
     {
-        Int,
-        Bin
+        Int,    //整数型
+        Bin,    //二項演算
+        Assign, // 代入
+        Ident,  // 参照
     };
 
     struct Expr
@@ -12,15 +17,14 @@ namespace SCPP
         enum Node_Type type;
         union{
             struct SInt *i;
-            struct Bin *b;
+            struct SBin *b;
+            struct SAssign *a;
+            struct SIdent *id;
         } u;
-        Expr();
+        Expr(){}
     };
-    Expr::Expr()
-    {
-    }
 
-
+    /* Int */
     struct SInt{
         int value;
         SInt(int value);
@@ -29,24 +33,50 @@ namespace SCPP
     {
     }
 
+    /* Bin */
     enum class Op{
-        Add,
-        Sub,
-        Mul,
-        Div
+        Add,    // +
+        Sub,    // -
+        Mul,    // *
+        Div,    // /
+        Lt,    // <
+        Leq,    // <=
+        Gt,     // >
+        Geq,    // >=
+        Eq,     // ==
+        Neq,    // !=
     };
 
-    struct Bin{
+    struct SBin{
         struct Expr left;
         struct Expr right;
         enum Op op;
-        Bin(struct Expr left, struct Expr right, enum Op op);
+        SBin(struct Expr left, struct Expr right, enum Op op);
     };
-    Bin::Bin(struct Expr left, struct Expr right, enum  Op op) : left(left), right(right), op(op)
+    SBin::SBin(struct Expr left, struct Expr right, enum  Op op) : left(left), right(right), op(op)
+    {
+    }
+
+    /* Variables */
+    struct SAssign{
+        string name;
+        struct Expr value;
+        SAssign(string name, struct Expr value);
+    };
+    SAssign::SAssign(string name, struct Expr value) : name(name), value(value)
+    {
+    }
+
+    struct SIdent{
+        string name;
+        SIdent(string name);
+    };
+    SIdent::SIdent(string name) : name(name)
     {
     }
 
 
+    /* Supporting functions */
     struct Expr createInt(int value){
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Int;
@@ -57,29 +87,88 @@ namespace SCPP
     struct Expr createAdd(struct Expr left, struct Expr right){
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Bin;
-        expr->u.b = new Bin(left, right, Op::Add);
+        expr->u.b = new SBin(left, right, Op::Add);
         return *expr;
     }
 
     struct Expr createSub(struct Expr left, struct Expr right){
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Bin;
-        expr->u.b = new Bin(left, right, Op::Sub);
+        expr->u.b = new SBin(left, right, Op::Sub);
         return *expr;
     }
 
     struct Expr createMul(struct Expr left, struct Expr right){
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Bin;
-        expr->u.b = new Bin(left, right, Op::Mul);
+        expr->u.b = new SBin(left, right, Op::Mul);
         return *expr;
     }
 
     struct Expr createDiv(struct Expr left, struct Expr right){
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Bin;
-        expr->u.b = new Bin(left, right, Op::Div);
+        expr->u.b = new SBin(left, right, Op::Div);
         return *expr;
     }
+
+    struct Expr createLt(struct Expr left, struct Expr right){
+        struct Expr *expr = new Expr();
+        expr->type = Node_Type::Bin;
+        expr->u.b = new SBin(left, right, Op::Lt);
+        return *expr;
+    }
+
+    struct Expr createLeq(struct Expr left, struct Expr right){
+        struct Expr *expr = new Expr();
+        expr->type = Node_Type::Bin;
+        expr->u.b = new SBin(left, right, Op::Leq);
+        return *expr;
+    }
+
+    struct Expr createGt(struct Expr left, struct Expr right){
+        struct Expr *expr = new Expr();
+        expr->type = Node_Type::Bin;
+        expr->u.b = new SBin(left, right, Op::Gt);
+        return *expr;
+    }
+
+    struct Expr createGeq(struct Expr left, struct Expr right){
+        struct Expr *expr = new Expr();
+        expr->type = Node_Type::Bin;
+        expr->u.b = new SBin(left, right, Op::Geq);
+        return *expr;
+    }
+
+    struct Expr createEq(struct Expr left, struct Expr right){
+        struct Expr *expr = new Expr();
+        expr->type = Node_Type::Bin;
+        expr->u.b = new SBin(left, right, Op::Eq);
+        return *expr;
+    }
+
+    struct Expr createNeq(struct Expr left, struct Expr right){
+        struct Expr *expr = new Expr();
+        expr->type = Node_Type::Bin;
+        expr->u.b = new SBin(left, right, Op::Neq);
+        return *expr;
+    }
+
+    struct Expr createAssign(string name, struct Expr value){
+        struct Expr *expr = new Expr();
+        expr->type = Node_Type::Assign;
+        expr->u.a = new SAssign(name, value);
+        return *expr;
+    }
+
+    struct Expr createIdent(string name){
+        struct Expr *expr = new Expr();
+        expr->type = Node_Type::Ident;
+        expr->u.id = new SIdent(name);
+        return *expr;
+    }
+
+
+
 
 } // namespace SCPP
