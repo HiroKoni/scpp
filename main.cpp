@@ -23,8 +23,14 @@ int main(int argc, char const *argv[])
         createAdd(
             createInt(4),
             createInt(5)));
+    Expr o = createAssign(
+        "a",
+        createInt(3));
+    Expr p = createSeq(createAssign("a", createInt(3)), createAssign("b", createInt(4)), createAssign("a",createAdd(createIdent("a"), createIdent("b"))), createIdent("a"));
+
     cout << evaluate(i) << evaluate(j) << std::endl;
-    cout << evaluate(k) << evaluate(l) << evaluate(m) << evaluate(n) << std::endl;
+    cout << evaluate(k) << evaluate(l) << evaluate(m) << evaluate(n) << evaluate(o) << std::endl;
+    cout << evaluate(p) << std::endl;
 
     return 0;
 }

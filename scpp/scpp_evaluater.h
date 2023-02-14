@@ -1,13 +1,14 @@
 #pragma once
-#include"scpp_ast.h"
+#include "scpp_ast.h"
 #include <string>
 #include <map>
 namespace SCPP
 {
-    using std::string;
     using std::map;
-
-    int evaluate(struct Expr &expr){
+    using std::string;
+    map<string, int> global = {};
+    int evaluate(struct Expr &expr, map<string, int> &env = global)
+    {
         switch (expr.type)
         {
         case Node_Type::Int:
@@ -38,15 +39,23 @@ namespace SCPP
             default:
                 break;
             }
+        case Node_Type::Seq:
+        {
+            int result = 0;
+            for (auto &&i : expr.u.s->exprs)
+            {
+                result = evaluate(i, env);
+            }
+            return result;
+        }
         case Node_Type::Assign:
-            break;
+            env.insert_or_assign(expr.u.a->name, evaluate(expr.u.a->value));
+            return env[expr.u.a->name];
         case Node_Type::Ident:
-            break;
-
-
+            return env[expr.u.id->name]; /* 存在しない場合は0が生成される */
         default:
             break;
         }
         return 0;
     }
-}// namespace SCPP
+} // namespace SCPP
