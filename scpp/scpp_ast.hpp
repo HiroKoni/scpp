@@ -162,90 +162,90 @@ namespace SCPP
     /* Supporting functions */
     struct Expr tInt(int value)
     {
-        struct Expr *expr = new Expr();
-        expr->type = ExprType::Int;
-        expr->u.i = new SInt(value);
-        return *expr;
+        struct Expr expr;
+        expr.type = ExprType::Int;
+        expr.u.i = new SInt(value);
+        return expr;
     }
 
     struct Expr tAdd(struct Expr left, struct Expr right)
     {
-        struct Expr *expr = new Expr();
-        expr->type = ExprType::Bin;
-        expr->u.b = new SBin(left, right, Op::Add);
-        return *expr;
+        struct Expr expr;
+        expr.type = ExprType::Bin;
+        expr.u.b = new SBin(left, right, Op::Add);
+        return expr;
     }
 
     struct Expr tSub(struct Expr left, struct Expr right)
     {
-        struct Expr *expr = new Expr();
-        expr->type = ExprType::Bin;
-        expr->u.b = new SBin(left, right, Op::Sub);
-        return *expr;
+        struct Expr expr;
+        expr.type = ExprType::Bin;
+        expr.u.b = new SBin(left, right, Op::Sub);
+        return expr;
     }
 
     struct Expr tMul(struct Expr left, struct Expr right)
     {
-        struct Expr *expr = new Expr();
-        expr->type = ExprType::Bin;
-        expr->u.b = new SBin(left, right, Op::Mul);
-        return *expr;
+        struct Expr expr;
+        expr.type = ExprType::Bin;
+        expr.u.b = new SBin(left, right, Op::Mul);
+        return expr;
     }
 
     struct Expr tDiv(struct Expr left, struct Expr right)
     {
-        struct Expr *expr = new Expr();
-        expr->type = ExprType::Bin;
-        expr->u.b = new SBin(left, right, Op::Div);
-        return *expr;
+        struct Expr expr;
+        expr.type = ExprType::Bin;
+        expr.u.b = new SBin(left, right, Op::Div);
+        return expr;
     }
 
     struct Expr tLt(struct Expr left, struct Expr right)
     {
-        struct Expr *expr = new Expr();
-        expr->type = ExprType::Bin;
-        expr->u.b = new SBin(left, right, Op::Lt);
-        return *expr;
+        struct Expr expr;
+        expr.type = ExprType::Bin;
+        expr.u.b = new SBin(left, right, Op::Lt);
+        return expr;
     }
 
     struct Expr tLeq(struct Expr left, struct Expr right)
     {
-        struct Expr *expr = new Expr();
-        expr->type = ExprType::Bin;
-        expr->u.b = new SBin(left, right, Op::Leq);
-        return *expr;
+        struct Expr expr;
+        expr.type = ExprType::Bin;
+        expr.u.b = new SBin(left, right, Op::Leq);
+        return expr;
     }
 
     struct Expr tGt(struct Expr left, struct Expr right)
     {
-        struct Expr *expr = new Expr();
-        expr->type = ExprType::Bin;
-        expr->u.b = new SBin(left, right, Op::Gt);
-        return *expr;
+        struct Expr expr;
+        expr.type = ExprType::Bin;
+        expr.u.b = new SBin(left, right, Op::Gt);
+        return expr;
     }
 
     struct Expr tGeq(struct Expr left, struct Expr right)
     {
-        struct Expr *expr = new Expr();
-        expr->type = ExprType::Bin;
-        expr->u.b = new SBin(left, right, Op::Geq);
-        return *expr;
+        struct Expr expr;
+        expr.type = ExprType::Bin;
+        expr.u.b = new SBin(left, right, Op::Geq);
+        return expr;
     }
 
     struct Expr tEq(struct Expr left, struct Expr right)
     {
-        struct Expr *expr = new Expr();
-        expr->type = ExprType::Bin;
-        expr->u.b = new SBin(left, right, Op::Eq);
-        return *expr;
+        struct Expr expr;
+        expr.type = ExprType::Bin;
+        expr.u.b = new SBin(left, right, Op::Eq);
+        return expr;
     }
 
     struct Expr tNeq(struct Expr left, struct Expr right)
     {
-        struct Expr *expr = new Expr();
-        expr->type = ExprType::Bin;
-        expr->u.b = new SBin(left, right, Op::Neq);
-        return *expr;
+        struct Expr expr;
+        expr.type = ExprType::Bin;
+        expr.u.b = new SBin(left, right, Op::Neq);
+        return expr;
     }
 
     template <class... Args>
@@ -256,42 +256,42 @@ namespace SCPP
         {
             exprs.push_back(expr);
         }
-        struct Expr *expr = new Expr();
-        expr->type = ExprType::Seq;
-        expr->u.s = new SSeq(exprs);
-        return *expr;
+        struct Expr expr;
+        expr.type = ExprType::Seq;
+        expr.u.s = new SSeq(exprs);
+        return expr;
     }
 
     struct Expr tAssign(string name, struct Expr value)
     {
-        struct Expr *expr = new Expr();
-        expr->type = ExprType::Assign;
-        expr->u.a = new SAssign(name, value);
-        return *expr;
+        struct Expr expr;
+        expr.type = ExprType::Assign;
+        expr.u.a = new SAssign(name, value);
+        return expr;
     }
 
     struct Expr tIdent(string name)
     {
-        struct Expr *expr = new Expr();
-        expr->type = ExprType::Ident;
-        expr->u.id = new SIdent(name);
-        return *expr;
+        struct Expr expr;
+        expr.type = ExprType::Ident;
+        expr.u.id = new SIdent(name);
+        return expr;
     }
 
     struct Expr tIf(struct Expr condition, struct Expr thenClause, struct Expr elseClause = tInt(0)) /* conditionが満たされずelseClauseが与えられていない場合、0を返す */
     {
-        struct Expr *expr = new Expr();
-        expr->type = ExprType::If;
-        expr->u.if_ = new SIf(condition, thenClause, elseClause);
-        return *expr;
+        struct Expr expr;
+        expr.type = ExprType::If;
+        expr.u.if_ = new SIf(condition, thenClause, elseClause);
+        return expr;
     }
 
     struct Expr tWhile(struct Expr condition, struct Expr body)
     {
-        struct Expr *expr = new Expr();
-        expr->type = ExprType::While;
-        expr->u.w = new SWhile(condition, body);
-        return *expr;
+        struct Expr expr;
+        expr.type = ExprType::While;
+        expr.u.w = new SWhile(condition, body);
+        return expr;
     }
 
     template <class... Args>
@@ -325,8 +325,8 @@ namespace SCPP
         // {
         //     exprs.push_back(expr);
         // }
-        // struct Expr *expr = new Expr();
-        // expr->type = Node_Type::Seq;
+        // struct Expr expr;
+        // expr.type = Node_Type::Seq;
         // expr.u.s = new SSeq(exprs);
         return SFunction(name, args, tSeq(bodies...));
     }
@@ -350,10 +350,10 @@ namespace SCPP
         {
             exprs.push_back(expr);
         }
-        struct Expr *expr = new Expr();
-        expr->type = ExprType::Call;
-        expr->u.c = new SCall(name, exprs);
-        return *expr;
+        struct Expr expr;
+        expr.type = ExprType::Call;
+        expr.u.c = new SCall(name, exprs);
+        return expr;
     }
 
 } // namespace SCPP

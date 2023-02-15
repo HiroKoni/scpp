@@ -6,7 +6,7 @@ SCPP(SCripting language in c Plus Plus) は、C++で動作する、抽象構文�
 ## 環境
 C++17で動作します。
 
-付属するテストは、Google Testを用いたものです。
+付属するテストは、[Google Test](https://github.com/google/googletest)を用いたものです。
 `CMakeList.txt`を用いて、バージョン3.14以降のCmakeによりビルドすることで、テスト環境を容易に準備することができます。
 （[参考リンク](https://google.github.io/googletest/quickstart-cmake.html#create-and-run-a-binary)）
 
