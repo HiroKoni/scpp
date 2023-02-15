@@ -8,7 +8,7 @@ namespace SCPP
     using std::map;
     using std::string;
 
-    enum class Node_Type
+    enum class ExprType
     {
         Int,    // 整数型
         Bin,    // 二項演算
@@ -22,7 +22,7 @@ namespace SCPP
 
     struct Expr
     {
-        enum Node_Type type;
+        enum ExprType type;
         union
         {
             struct SInt *i;
@@ -47,7 +47,7 @@ namespace SCPP
     {
     }
 
-    /* Bin */
+    /* Binominal Operations */
     enum class Op
     {
         Add, // +
@@ -163,7 +163,7 @@ namespace SCPP
     struct Expr tInt(int value)
     {
         struct Expr *expr = new Expr();
-        expr->type = Node_Type::Int;
+        expr->type = ExprType::Int;
         expr->u.i = new SInt(value);
         return *expr;
     }
@@ -171,7 +171,7 @@ namespace SCPP
     struct Expr tAdd(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
-        expr->type = Node_Type::Bin;
+        expr->type = ExprType::Bin;
         expr->u.b = new SBin(left, right, Op::Add);
         return *expr;
     }
@@ -179,7 +179,7 @@ namespace SCPP
     struct Expr tSub(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
-        expr->type = Node_Type::Bin;
+        expr->type = ExprType::Bin;
         expr->u.b = new SBin(left, right, Op::Sub);
         return *expr;
     }
@@ -187,7 +187,7 @@ namespace SCPP
     struct Expr tMul(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
-        expr->type = Node_Type::Bin;
+        expr->type = ExprType::Bin;
         expr->u.b = new SBin(left, right, Op::Mul);
         return *expr;
     }
@@ -195,7 +195,7 @@ namespace SCPP
     struct Expr tDiv(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
-        expr->type = Node_Type::Bin;
+        expr->type = ExprType::Bin;
         expr->u.b = new SBin(left, right, Op::Div);
         return *expr;
     }
@@ -203,7 +203,7 @@ namespace SCPP
     struct Expr tLt(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
-        expr->type = Node_Type::Bin;
+        expr->type = ExprType::Bin;
         expr->u.b = new SBin(left, right, Op::Lt);
         return *expr;
     }
@@ -211,7 +211,7 @@ namespace SCPP
     struct Expr tLeq(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
-        expr->type = Node_Type::Bin;
+        expr->type = ExprType::Bin;
         expr->u.b = new SBin(left, right, Op::Leq);
         return *expr;
     }
@@ -219,7 +219,7 @@ namespace SCPP
     struct Expr tGt(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
-        expr->type = Node_Type::Bin;
+        expr->type = ExprType::Bin;
         expr->u.b = new SBin(left, right, Op::Gt);
         return *expr;
     }
@@ -227,7 +227,7 @@ namespace SCPP
     struct Expr tGeq(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
-        expr->type = Node_Type::Bin;
+        expr->type = ExprType::Bin;
         expr->u.b = new SBin(left, right, Op::Geq);
         return *expr;
     }
@@ -235,7 +235,7 @@ namespace SCPP
     struct Expr tEq(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
-        expr->type = Node_Type::Bin;
+        expr->type = ExprType::Bin;
         expr->u.b = new SBin(left, right, Op::Eq);
         return *expr;
     }
@@ -243,7 +243,7 @@ namespace SCPP
     struct Expr tNeq(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
-        expr->type = Node_Type::Bin;
+        expr->type = ExprType::Bin;
         expr->u.b = new SBin(left, right, Op::Neq);
         return *expr;
     }
@@ -257,7 +257,7 @@ namespace SCPP
             exprs.push_back(expr);
         }
         struct Expr *expr = new Expr();
-        expr->type = Node_Type::Seq;
+        expr->type = ExprType::Seq;
         expr->u.s = new SSeq(exprs);
         return *expr;
     }
@@ -265,7 +265,7 @@ namespace SCPP
     struct Expr tAssign(string name, struct Expr value)
     {
         struct Expr *expr = new Expr();
-        expr->type = Node_Type::Assign;
+        expr->type = ExprType::Assign;
         expr->u.a = new SAssign(name, value);
         return *expr;
     }
@@ -273,7 +273,7 @@ namespace SCPP
     struct Expr tIdent(string name)
     {
         struct Expr *expr = new Expr();
-        expr->type = Node_Type::Ident;
+        expr->type = ExprType::Ident;
         expr->u.id = new SIdent(name);
         return *expr;
     }
@@ -281,7 +281,7 @@ namespace SCPP
     struct Expr tIf(struct Expr condition, struct Expr thenClause, struct Expr elseClause = tInt(0)) /* conditionが満たされずelseClauseが与えられていない場合、0を返す */
     {
         struct Expr *expr = new Expr();
-        expr->type = Node_Type::If;
+        expr->type = ExprType::If;
         expr->u.if_ = new SIf(condition, thenClause, elseClause);
         return *expr;
     }
@@ -289,7 +289,7 @@ namespace SCPP
     struct Expr tWhile(struct Expr condition, struct Expr body)
     {
         struct Expr *expr = new Expr();
-        expr->type = Node_Type::While;
+        expr->type = ExprType::While;
         expr->u.w = new SWhile(condition, body);
         return *expr;
     }
@@ -351,7 +351,7 @@ namespace SCPP
             exprs.push_back(expr);
         }
         struct Expr *expr = new Expr();
-        expr->type = Node_Type::Call;
+        expr->type = ExprType::Call;
         expr->u.c = new SCall(name, exprs);
         return *expr;
     }

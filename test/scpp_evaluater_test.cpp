@@ -8,11 +8,11 @@ TEST(SCPPTest, tInt)
 {
   using namespace SCPP;
   auto i = tInt(3);
-  EXPECT_EQ(i.type, Node_Type::Int);
+  EXPECT_EQ(i.type, ExprType::Int);
   EXPECT_EQ(evaluate(i), 3); /* 3==3 */
 
   auto j = tInt(4);
-  EXPECT_EQ(j.type, Node_Type::Int);
+  EXPECT_EQ(j.type, ExprType::Int);
   EXPECT_EQ(evaluate(j), 4); /* 4==4 */
 }
 
@@ -89,8 +89,6 @@ TEST(SCPPTest, ComplexBin)
   auto j = tMul(tInt(10), tDiv(tInt(2), tInt(3)));
   EXPECT_EQ(evaluate(j), 0); /* 10*(2/3)==0 */
 }
-
-// Tests for Comparisons
 TEST(SCPPTest, tEq)
 {
   using namespace SCPP;

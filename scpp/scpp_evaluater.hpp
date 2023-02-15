@@ -13,9 +13,9 @@ namespace SCPP
     {
         switch (expr.type)
         {
-        case Node_Type::Int:
+        case ExprType::Int:
             return expr.u.i->value;
-        case Node_Type::Bin:
+        case ExprType::Bin:
             switch (expr.u.b->op)
             {
             case Op::Add:
@@ -41,7 +41,7 @@ namespace SCPP
             default:
                 break;
             }
-        case Node_Type::Seq:
+        case ExprType::Seq:
         {
             int result = 0;
             for (auto &&i : expr.u.s->exprs)
@@ -50,12 +50,12 @@ namespace SCPP
             }
             return result;
         }
-        case Node_Type::Assign:
+        case ExprType::Assign:
             env.insert_or_assign(expr.u.a->name, evaluate(expr.u.a->value, env, functions));
             return env[expr.u.a->name];
-        case Node_Type::Ident:
+        case ExprType::Ident:
             return env[expr.u.id->name]; /* 存在しない場合は0が生成される */
-        case Node_Type::If:
+        case ExprType::If:
             if (evaluate(expr.u.if_->condition, env, functions))
             {
                 return evaluate(expr.u.if_->thenClause, env, functions);
@@ -64,7 +64,7 @@ namespace SCPP
             {
                 return evaluate(expr.u.if_->elseClause, env, functions);
             }
-        case Node_Type::While:
+        case ExprType::While:
         {
             int result = 0;
             while (evaluate(expr.u.w->condition, env, functions))
@@ -73,7 +73,7 @@ namespace SCPP
             }
             return result;
         }
-        case Node_Type::Call:
+        case ExprType::Call:
         {
             try
             {
