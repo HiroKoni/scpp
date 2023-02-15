@@ -192,3 +192,36 @@ TEST(SCPPTest, tGeq)
   Expr m = tGeq(tInt(1), tInt(0));
   EXPECT_EQ(evaluate(m), 1); /* (1>=0)==1 */
 }
+
+
+// Test for If Expression
+TEST(SCPPTest, tIf)
+{
+  using namespace SCPP;
+  Expr i = tIf(tInt(1), tInt(1), tInt(2));
+  EXPECT_EQ(evaluate(i), 1); /* if(1) 1 else 2 */
+
+  Expr j = tIf(tInt(0), tInt(1), tInt(2));
+  EXPECT_EQ(evaluate(j), 2); /* if(0) 1 else 2 */
+
+  Expr k = tIf(tLeq(tInt(1), tInt(2)), tInt(1), tInt(2));
+  EXPECT_EQ(evaluate(k), 1); /* if(1<=2) 1 else 2 */
+
+  Expr l = tAdd(tInt(1), tIf(tLeq(tInt(1), tInt(2)), tInt(1), tInt(2))); /* 1 + if(1<=2) 1 else 2 */
+}
+
+// Test for While Expression
+TEST(SCPPTest, tWhile)
+{
+  using namespace SCPP;
+  Expr i = tWhile(tLeq(tIdent("a"), tInt(10)), tAssign("a", tAdd(tIdent("a"), tInt(1))));
+  EXPECT_EQ(evaluate(i), 11); /* while(a<=10) a = a + 1 */
+}
+
+// Test for Sequence
+TEST(SCPPTest, tSeq)
+{
+  using namespace SCPP;
+  Expr i = tSeq(tAssign("a", tInt(1)), tAssign("b", tInt(2)),tAssign("c", tAdd(tIdent("a"), tIdent("b"))));
+  EXPECT_EQ(evaluate(i), 3); /* a = 1; b = 2; c = a + b; */
+}
