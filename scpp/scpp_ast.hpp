@@ -160,7 +160,7 @@ namespace SCPP
     }
 
     /* Supporting functions */
-    struct Expr createInt(int value)
+    struct Expr tInt(int value)
     {
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Int;
@@ -168,7 +168,7 @@ namespace SCPP
         return *expr;
     }
 
-    struct Expr createAdd(struct Expr left, struct Expr right)
+    struct Expr tAdd(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Bin;
@@ -176,7 +176,7 @@ namespace SCPP
         return *expr;
     }
 
-    struct Expr createSub(struct Expr left, struct Expr right)
+    struct Expr tSub(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Bin;
@@ -184,7 +184,7 @@ namespace SCPP
         return *expr;
     }
 
-    struct Expr createMul(struct Expr left, struct Expr right)
+    struct Expr tMul(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Bin;
@@ -192,7 +192,7 @@ namespace SCPP
         return *expr;
     }
 
-    struct Expr createDiv(struct Expr left, struct Expr right)
+    struct Expr tDiv(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Bin;
@@ -200,7 +200,7 @@ namespace SCPP
         return *expr;
     }
 
-    struct Expr createLt(struct Expr left, struct Expr right)
+    struct Expr tLt(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Bin;
@@ -208,7 +208,7 @@ namespace SCPP
         return *expr;
     }
 
-    struct Expr createLeq(struct Expr left, struct Expr right)
+    struct Expr tLeq(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Bin;
@@ -216,7 +216,7 @@ namespace SCPP
         return *expr;
     }
 
-    struct Expr createGt(struct Expr left, struct Expr right)
+    struct Expr tGt(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Bin;
@@ -224,7 +224,7 @@ namespace SCPP
         return *expr;
     }
 
-    struct Expr createGeq(struct Expr left, struct Expr right)
+    struct Expr tGeq(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Bin;
@@ -232,7 +232,7 @@ namespace SCPP
         return *expr;
     }
 
-    struct Expr createEq(struct Expr left, struct Expr right)
+    struct Expr tEq(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Bin;
@@ -240,7 +240,7 @@ namespace SCPP
         return *expr;
     }
 
-    struct Expr createNeq(struct Expr left, struct Expr right)
+    struct Expr tNeq(struct Expr left, struct Expr right)
     {
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Bin;
@@ -249,7 +249,7 @@ namespace SCPP
     }
 
     template <class... Args>
-    struct Expr createSeq(Args... args)
+    struct Expr tSeq(Args... args)
     {
         list<struct Expr> exprs;
         for (struct Expr expr : std::initializer_list<struct Expr>{args...})
@@ -262,7 +262,7 @@ namespace SCPP
         return *expr;
     }
 
-    struct Expr createAssign(string name, struct Expr value)
+    struct Expr tAssign(string name, struct Expr value)
     {
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Assign;
@@ -270,7 +270,7 @@ namespace SCPP
         return *expr;
     }
 
-    struct Expr createIdent(string name)
+    struct Expr tIdent(string name)
     {
         struct Expr *expr = new Expr();
         expr->type = Node_Type::Ident;
@@ -278,7 +278,7 @@ namespace SCPP
         return *expr;
     }
 
-    struct Expr createIf(struct Expr condition, struct Expr thenClause, struct Expr elseClause = createInt(0)) /* conditionが満たされずelseClauseが与えられていない場合、0を返す */
+    struct Expr tIf(struct Expr condition, struct Expr thenClause, struct Expr elseClause = tInt(0)) /* conditionが満たされずelseClauseが与えられていない場合、0を返す */
     {
         struct Expr *expr = new Expr();
         expr->type = Node_Type::If;
@@ -286,7 +286,7 @@ namespace SCPP
         return *expr;
     }
 
-    struct Expr createWhile(struct Expr condition, struct Expr body)
+    struct Expr tWhile(struct Expr condition, struct Expr body)
     {
         struct Expr *expr = new Expr();
         expr->type = Node_Type::While;
@@ -295,7 +295,7 @@ namespace SCPP
     }
 
     template <class... Args>
-    struct SProgram createProgram(list<struct SFunction> functions, Args... bodies)
+    struct SProgram tProgram(list<struct SFunction> functions, Args... bodies)
     {
         list<struct Expr> exprs;
         for (struct Expr expr : std::initializer_list<struct Expr>{bodies...})
@@ -306,7 +306,7 @@ namespace SCPP
     }
 
     template <class... Args>
-    list<struct SFunction> createFunctionList(Args... functions)
+    list<struct SFunction> FunctionList(Args... functions)
     {
         list<struct SFunction> funcList;
         for (struct SFunction func : std::initializer_list<struct SFunction>{functions...})
@@ -317,7 +317,7 @@ namespace SCPP
     }
 
     template <class... Args>
-    struct SFunction createFunction(string name, list<string> args, Args... bodies)
+    struct SFunction tFunction(string name, list<string> args, Args... bodies)
     {
 
         // list<struct Expr> exprs;
@@ -328,11 +328,11 @@ namespace SCPP
         // struct Expr *expr = new Expr();
         // expr->type = Node_Type::Seq;
         // expr.u.s = new SSeq(exprs);
-        return SFunction(name, args, createSeq(bodies...));
+        return SFunction(name, args, tSeq(bodies...));
     }
 
     template <class... Args>
-    list<string> createParamList(Args... args)
+    list<string> ParamList(Args... args)
     {
         list<string> argList;
         for (string arg : std::initializer_list<string>{args...})
@@ -343,7 +343,7 @@ namespace SCPP
     } /* 何も与えられなかったら空のリストを返す */
 
     template <class... Args>
-    struct Expr createCall(string name, Args... args)
+    struct Expr tCall(string name, Args... args)
     {
         list<struct Expr> exprs;
         for (struct Expr expr : std::initializer_list<struct Expr>{args...})

@@ -7,64 +7,64 @@ int main(int argc, char const *argv[])
     using std::cin;
     using std::cout;
     using namespace SCPP;
-    Expr i = createInt(3);
-    Expr j = createInt(4);
-    Expr k = createAdd(i, j);
-    Expr l = createSub(k, j);
-    Expr m = createAdd(
-        createMul(
+    Expr i = tInt(3);
+    Expr j = tInt(4);
+    Expr k = tAdd(i, j);
+    Expr l = tSub(k, j);
+    Expr m = tAdd(
+        tMul(
             i,
-            createInt(4)),
-        createDiv(
-            createInt(5),
-            createInt(6)));
-    Expr n = createLt(
-        createInt(3),
-        createAdd(
-            createInt(4),
-            createInt(5)));
-    // Expr o = createAssign(
+            tInt(4)),
+        tDiv(
+            tInt(5),
+            tInt(6)));
+    Expr n = tLt(
+        tInt(3),
+        tAdd(
+            tInt(4),
+            tInt(5)));
+    // Expr o = tAssign(
     //     "a",
-    //     createInt(3));
-    // Expr p = createSeq(createAssign("a", createInt(3)), createAssign("b", createInt(4)), createAssign("a", createAdd(createIdent("a"), createIdent("b"))), createIdent("a"));
-    Expr q = createIf(
-        createLt(
-            createInt(1650),
-            createAdd(
-                createInt(4),
-                createInt(5))),
-        createAssign(
+    //     tInt(3));
+    // Expr p = tSeq(tAssign("a", tInt(3)), tAssign("b", tInt(4)), tAssign("a", tAdd(tIdent("a"), tIdent("b"))), tIdent("a"));
+    Expr q = tIf(
+        tLt(
+            tInt(1650),
+            tAdd(
+                tInt(4),
+                tInt(5))),
+        tAssign(
             "a",
-            createInt(3)));
-    Expr r = createWhile(
-        createLt(
-            createIdent("a"),
-            createInt(3)),
-        createSeq(
-            createAssign(
+            tInt(3)));
+    Expr r = tWhile(
+        tLt(
+            tIdent("a"),
+            tInt(3)),
+        tSeq(
+            tAssign(
                 "a",
-                createAdd(
-                    createIdent("a"),
-                    createInt(1))),
-            createAssign(
+                tAdd(
+                    tIdent("a"),
+                    tInt(1))),
+            tAssign(
                 "b",
-                createAdd(
-                    createIdent("b"),
-                    createInt(15)))));
-    auto Program = createProgram(
-        createFunctionList(
-            createFunction(
+                tAdd(
+                    tIdent("b"),
+                    tInt(15)))));
+    auto Program = tProgram(
+        FunctionList(
+            tFunction(
                 "add",
-                createParamList("a", "b"),
-                createAdd(
-                    createIdent("a"),
-                    createIdent("b"))) /* add(a,b){return a+b} */
+                ParamList("a", "b"),
+                tAdd(
+                    tIdent("a"),
+                    tIdent("b"))) /* add(a,b){return a+b} */
             ),
-        createAssign("a", createInt(3)),                                          /* a=3 */
-        createAssign("b", createInt(4)),                                          /* b=4 */
-        createAssign("a", createCall("add", createIdent("a"), createIdent("b"))), /* a=add(a,b) */
-        createAssign("c", createInt(10)),                                         /* c=10 */
-        createCall("add", createIdent("a"), createIdent("c"))/* add(a,c) */);
+        tAssign("a", tInt(3)),                                          /* a=3 */
+        tAssign("b", tInt(4)),                                          /* b=4 */
+        tAssign("a", tCall("add", tIdent("a"), tIdent("b"))), /* a=add(a,b) */
+        tAssign("c", tInt(10)),                                         /* c=10 */
+        tCall("add", tIdent("a"), tIdent("c"))/* add(a,c) */);
 
     cout << evaluate(i) << evaluate(j) << std::endl;
     // cout << evaluate(k) << evaluate(l) << evaluate(m) << evaluate(n) << evaluate(o) << std::endl;
