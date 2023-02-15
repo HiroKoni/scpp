@@ -88,3 +88,107 @@ TEST(SCPPTest, ComplexBin){
   Expr j = tMul(tInt(10), tDiv(tInt(2), tInt(3)));
   EXPECT_EQ(evaluate(j), 0); /* 10*(2/3)==0 */
 }
+
+// Tests for Comparisons
+TEST(SCPPTest, tEq)
+{
+  using namespace SCPP;
+  Expr i = tEq(tInt(1), tInt(1));
+  EXPECT_EQ(evaluate(i), 1); /* (1==1)==1 */
+
+  Expr j = tEq(tInt(1), tInt(2));
+  EXPECT_EQ(evaluate(j), 0); /* (1==2)==0 */
+
+  Expr k = tEq(tInt(-100), tInt(100));
+  EXPECT_EQ(evaluate(k), 0); /* ((-100)==100)==0 */
+
+  Expr l = tEq(tInt(1), tAdd(tInt(2), tInt(3)));
+  EXPECT_EQ(evaluate(l), 0); /* (1==(2+3))==0 */
+}
+TEST(SCPPTest, tNeq)
+{
+  using namespace SCPP;
+  Expr i = tNeq(tInt(1), tInt(1));
+  EXPECT_EQ(evaluate(i), 0); /* (1!=1)==0 */
+
+  Expr j = tNeq(tInt(1), tInt(2));
+  EXPECT_EQ(evaluate(j), 1); /* (1!=2)==1 */
+
+  Expr k = tNeq(tInt(-100), tInt(100));
+  EXPECT_EQ(evaluate(k), 1); /* ((-100)!=100)==1 */
+
+  Expr l = tNeq(tInt(1), tAdd(tInt(2), tInt(3)));
+  EXPECT_EQ(evaluate(l), 1); /* (1!=(2+3))==1 */
+}
+TEST(SCPPTest, tLt)
+{
+  using namespace SCPP;
+  Expr i = tLt(tInt(1), tInt(1));
+  EXPECT_EQ(evaluate(i), 0); /* (1<1)==0 */
+
+  Expr j = tLt(tInt(1), tInt(2));
+  EXPECT_EQ(evaluate(j), 1); /* (1<2)==1 */
+
+  Expr k = tLt(tInt(-100), tInt(100));
+  EXPECT_EQ(evaluate(k), 1); /* ((-100)<100)==1 */
+
+  Expr l = tLt(tInt(1), tAdd(tInt(2), tInt(3)));
+  EXPECT_EQ(evaluate(l), 1); /* (1<(2+3))==1 */
+
+  Expr m = tLt(tInt(1), tInt(0));
+  EXPECT_EQ(evaluate(m), 0); /* (1<0)==0 */
+}
+TEST(SCPPTest, tGt)
+{
+  using namespace SCPP;
+  Expr i = tGt(tInt(1), tInt(1));
+  EXPECT_EQ(evaluate(i), 0); /* (1>1)==0 */
+
+  Expr j = tGt(tInt(1), tInt(2));
+  EXPECT_EQ(evaluate(j), 0); /* (1>2)==0 */
+
+  Expr k = tGt(tInt(-100), tInt(100));
+  EXPECT_EQ(evaluate(k), 0); /* ((-100)>100)==0 */
+
+  Expr l = tGt(tInt(1), tAdd(tInt(2), tInt(3)));
+  EXPECT_EQ(evaluate(l), 0); /* (1>(2+3))==0 */
+
+  Expr m = tGt(tInt(1), tInt(0));
+  EXPECT_EQ(evaluate(m), 1); /* (1>0)==1 */
+}
+TEST(SCPPTest, tLeq)
+{
+  using namespace SCPP;
+  Expr i = tLeq(tInt(1), tInt(1));
+  EXPECT_EQ(evaluate(i), 1); /* (1<=1)==1 */
+
+  Expr j = tLeq(tInt(1), tInt(2));
+  EXPECT_EQ(evaluate(j), 1); /* (1<=2)==1 */
+
+  Expr k = tLeq(tInt(-100), tInt(100));
+  EXPECT_EQ(evaluate(k), 1); /* ((-100)<=100)==1 */
+
+  Expr l = tLeq(tInt(1), tAdd(tInt(2), tInt(3)));
+  EXPECT_EQ(evaluate(l), 1); /* (1<=(2+3))==1 */
+
+  Expr m = tLeq(tInt(1), tInt(0));
+  EXPECT_EQ(evaluate(m), 0); /* (1<=0)==0 */
+}
+TEST(SCPPTest, tGeq)
+{
+  using namespace SCPP;
+  Expr i = tGeq(tInt(1), tInt(1));
+  EXPECT_EQ(evaluate(i), 1); /* (1>=1)==1 */
+
+  Expr j = tGeq(tInt(1), tInt(2));
+  EXPECT_EQ(evaluate(j), 0); /* (1>=2)==0 */
+
+  Expr k = tGeq(tInt(-100), tInt(100));
+  EXPECT_EQ(evaluate(k), 0); /* ((-100)>=100)==0 */
+
+  Expr l = tGeq(tInt(1), tAdd(tInt(2), tInt(3)));
+  EXPECT_EQ(evaluate(l), 0); /* (1>=(2+3))==0 */
+
+  Expr m = tGeq(tInt(1), tInt(0));
+  EXPECT_EQ(evaluate(m), 1); /* (1>=0)==1 */
+}
