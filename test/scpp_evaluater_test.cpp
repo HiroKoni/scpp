@@ -62,7 +62,7 @@ TEST(SCPPTest, tMul)
   Expr l = tMul(tInt(10), tMul(tInt(2), tInt(3)));
   EXPECT_EQ(evaluate(l), 60); /* 10*(2*3)==6 */
 
-  Expr m = tMul(tInt(1),tInt(0));
+  Expr m = tMul(tInt(1), tInt(0));
   EXPECT_EQ(evaluate(m), 0); /* 1*0==0 */
 }
 TEST(SCPPTest, tDiv)
@@ -80,7 +80,8 @@ TEST(SCPPTest, tDiv)
   Expr l = tDiv(tInt(2), tInt(3));
   EXPECT_EQ(evaluate(l), 0); /* 2/3==0 */
 }
-TEST(SCPPTest, ComplexBin){
+TEST(SCPPTest, ComplexBin)
+{
   using namespace SCPP;
   Expr i = tAdd(tInt(1), tMul(tInt(2), tInt(3)));
   EXPECT_EQ(evaluate(i), 7); /* 1+(2*3)==7 */
@@ -193,7 +194,6 @@ TEST(SCPPTest, tGeq)
   EXPECT_EQ(evaluate(m), 1); /* (1>=0)==1 */
 }
 
-
 // Test for If Expression
 TEST(SCPPTest, tIf)
 {
@@ -222,6 +222,25 @@ TEST(SCPPTest, tWhile)
 TEST(SCPPTest, tSeq)
 {
   using namespace SCPP;
-  Expr i = tSeq(tAssign("a", tInt(1)), tAssign("b", tInt(2)),tAssign("c", tAdd(tIdent("a"), tIdent("b"))));
+  Expr i = tSeq(tAssign("a", tInt(1)), tAssign("b", tInt(2)), tAssign("c", tAdd(tIdent("a"), tIdent("b"))));
   EXPECT_EQ(evaluate(i), 3); /* a = 1; b = 2; c = a + b; */
+}
+
+// Test for Programs
+TEST(SCPPTest, tProgram)
+{
+  using namespace SCPP;
+  auto program = tProgram(FunctionList(), tAssign("a", tInt(1)), tAssign("b", tInt(2)), tAssign("c", tAdd(tIdent("a"), tIdent("b"))));
+  EXPECT_EQ(evaluateProgram(program), 3); /* a = 1; b = 2; c = a + b; */
+
+  auto program2 = tProgram(
+      FunctionList(
+          tFunction(
+              "max",
+              ParamList("a", "b"),
+              tIf(tGt(tIdent("a"), tIdent("b")), tIdent("a"), tIdent("b")))),
+      tAssign("a", tInt(1)),
+      tAssign("b", tInt(2)),
+      tAssign("c", tCall("max", tIdent("a"), tIdent("b"))));
+  EXPECT_EQ(evaluateProgram(program2), 2); /* function max(a, b){if(a>b) return a; else return b;} a = 1; b = 2; c = max(a, b); */
 }
