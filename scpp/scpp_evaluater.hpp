@@ -1,5 +1,5 @@
 #pragma once
-#include "scpp_ast.h"
+#include "scpp_ast.hpp"
 #include <iostream>
 #include <string>
 #include <map>

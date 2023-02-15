@@ -1,5 +1,5 @@
-#include "scpp/scpp_ast.h"
-#include "scpp/scpp_evaluater.h"
+#include "scpp/scpp_ast.hpp"
+#include "scpp/scpp_evaluater.hpp"
 #include <iostream>
 
 int main(int argc, char const *argv[])
