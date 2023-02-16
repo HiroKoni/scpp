@@ -616,7 +616,7 @@ namespace SCPP
      * @return struct SProgram 一つのプログラムを表す構造体
      * @note 同名の関数を定義した場合、後に定義された関数が優先される。
      * @note 関数の評価は前から順に行われる。
-     * @note プログラムは式ではないことに注意してください。
+     * @note プログラムは式ではないことに注意せよ。
      */
     template <class... Args>
     struct SProgram tProgram(list<struct SFunction> functions, Args... bodies)
@@ -656,7 +656,7 @@ namespace SCPP
      * @param args 引数の変数名のリスト
      * @param body 関数本体が含む式を実行順に並べる
      * @return struct SFunction 関数定義の構造体
-     * @note 関数定義は式ではないことに注意してください。
+     * @note 関数定義は式ではないことに注意せよ。
      */
     template <class... Args>
     struct SFunction tFunction(string name, list<string> args, Args... bodies)
