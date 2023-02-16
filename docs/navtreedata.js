@@ -23,10 +23,11 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "SCPP", "index.html", [
-    [ "環境", "index.html#autotoc_md1", [
-      [ "開発に用いた環境", "index.html#autotoc_md2", null ]
+    [ "機能", "index.html#autotoc_md1", null ],
+    [ "環境", "index.html#autotoc_md2", [
+      [ "開発に用いた環境", "index.html#autotoc_md3", null ]
     ] ],
-    [ "主要な仕様", "index.html#autotoc_md3", null ],
+    [ "主要な仕様", "index.html#autotoc_md4", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ]

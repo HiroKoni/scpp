@@ -91,20 +91,33 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <li><a href="https://hirokoni.github.io/scpp/">Webドキュメント</a></li>
 </ul>
 <p>SCPP(SCripting language in c Plus Plus) は、C++で動作する、抽象構文木を用いた簡単なプログラミング言語のインタプリタです。</p>
-<p>整数型の四則演算式、mod式、主要な比較式(<code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>&amp;&amp;</code>, <code>||</code>)、<code>if</code>式、<code>while</code>式、<code>for</code>式、変数の定義・代入・参照、連接式をサポートし、関数定義も行えます。</p>
-<p>このプログラムは、筑波大学2022年度GB27001「ソフトウェアサイエンス特別講義A」の提出課題です。同授業内で解説された、<a href="https://github.com/kmizu/minis">minis</a>を参考にして作成されています。</p>
+<p>このプログラムは、2022年度筑波大学GB27001「ソフトウェアサイエンス特別講義A」の提出課題です。同授業内で解説された、<a href="https://github.com/kmizu/minis">minis</a>を参考にして作成されています。</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
+機能</h1>
+<p>整数型を用いた、</p><ul>
+<li>四則演算</li>
+<li>mod式</li>
+<li>主要な比較式(<code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>)</li>
+<li>論理演算式(<code>AND</code>, <code>OR</code>, <code>NOR</code>, <code>XOR</code>, <code>NAND</code>, <code>NOT</code>)</li>
+<li><code>if</code>式</li>
+<li><code>while</code>式</li>
+<li><code>for</code>式</li>
+<li>変数の定義・代入・参照</li>
+<li>連接式</li>
+</ul>
+<p>をサポートします。関数定義を行い、関数呼び出し式を用いて呼び出すこともできます。</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
 環境</h1>
 <p>C++17で動作します。</p>
 <p>付属するテストは、<a href="https://github.com/google/googletest">Google Test</a>を用いたものです。 <code>CMakeLists.txt</code>を用いて、バージョン3.14以降のCmakeによりビルドすることで、テスト環境を容易に準備することができます。 （<a href="https://google.github.io/googletest/quickstart-cmake.html#create-and-run-a-binary">参考リンク</a>）</p>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="autotoc_md3"></a>
 開発に用いた環境</h2>
 <ul>
 <li>Ubuntu 20.04.5 LTS on WSL2</li>
 <li>CMake 3.16.3</li>
 <li>g++ 9.4.0</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md4"></a>
 主要な仕様</h1>
 <ul>
 <li>実行環境におけるC++の<code>int</code>型の範囲で動作します。</li>
@@ -112,7 +125,8 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <li>除算において、小数点以下は切り捨てられます。</li>
 <li>宣言されていない変数を参照しようとした場合、その変数が宣言され、0で初期化されます。</li>
 <li><code>While</code>式及び<code>For</code>式において、条件式が満たされることがない場合、その式は0と評価されます。</li>
-<li>変数と関数は、別の環境で管理されるため、同名の変数と関数を同時に定義することができます。 </li>
+<li>変数と関数は、別の環境で管理されるため、同名の変数と関数を同時に定義することができます。</li>
+<li>プログラム<code>SProgram</code>内で定義された変数のスコープは、そのプログラム全体です。それ以外の変数は、全てグローバル変数です。 </li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
