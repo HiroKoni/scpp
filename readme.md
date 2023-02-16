@@ -1,11 +1,13 @@
 # SCPP
+
+- [GitHub リポジトリ](https://github.com/HiroKoni/scpp)
+- [Webドキュメント](https://hirokoni.github.io/scpp/)
+
 SCPP(SCripting language in c Plus Plus) は、C++で動作する、抽象構文木を用いた簡単なプログラミング言語のインタプリタです。
 
 整数型の四則演算式、mod式、主要な比較式(`==`, `!=`, `>`, `<`, `>=`, `<=`, `&&`, `||`)、`if`式、`while`式、`for`式、変数の定義・代入・参照、連接式をサポートし、関数定義も行えます。
 
 このプログラムは、筑波大学2022年度GB27001「ソフトウェアサイエンス特別講義A」の提出課題です。同授業内で解説された、[minis](https://github.com/kmizu/minis)を参考にして作成されています。
-
-[Webドキュメント](https://hirokoni.github.io/scpp/)が利用可能です。
 
 ## 環境
 C++17で動作します。

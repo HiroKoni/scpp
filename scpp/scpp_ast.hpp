@@ -20,7 +20,7 @@ namespace SCPP
     enum class ExprType
     {
         Int,    /// 整数型
-        Not,     /// 単項演算
+        Not,    /// 単項演算
         Bin,    /// 二項演算
         Seq,    /// 連接
         Assign, /// 代入
@@ -177,6 +177,10 @@ namespace SCPP
     }
 
     /* Function */
+    /**
+     * @brief プログラムを表す構造体
+     *
+     */
     struct SProgram
     {
         list<struct SFunction> functions;
@@ -187,11 +191,14 @@ namespace SCPP
     {
     }
 
+    /**
+     * @brief 関数を表す構造体
+     *
+     */
     struct SFunction
     {
         string name;
         list<string> args;
-        // list<struct Expr> body;
         struct Expr body;
         SFunction(string name, list<string> args, struct Expr body);
     };
@@ -609,6 +616,7 @@ namespace SCPP
      * @return struct SProgram 一つのプログラムを表す構造体
      * @note 同名の関数を定義した場合、後に定義された関数が優先される。
      * @note 関数の評価は前から順に行われる。
+     * @note プログラムは式ではないことに注意してください。
      */
     template <class... Args>
     struct SProgram tProgram(list<struct SFunction> functions, Args... bodies)
