@@ -20,7 +20,7 @@ namespace SCPP
     enum class ExprType
     {
         Int,    /// 整数型
-        Not,    /// 単項演算
+        Not,    /// Not演算
         Bin,    /// 二項演算
         Seq,    /// 連接
         Assign, /// 代入
