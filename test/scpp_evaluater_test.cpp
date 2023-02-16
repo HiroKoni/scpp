@@ -89,7 +89,8 @@ TEST(SCPPTest, ComplexBin)
   auto j = tMul(tInt(10), tDiv(tInt(2), tInt(3)));
   EXPECT_EQ(evaluate(j), 0); /* 10*(2/3)==0 */
 }
-TEST(SCPPTest, tMod){
+TEST(SCPPTest, tMod)
+{
   using namespace SCPP;
   auto i = tMod(tInt(1), tInt(1));
   EXPECT_EQ(evaluate(i), 0); /* (1%1)==0 */
@@ -259,8 +260,22 @@ TEST(SCPPTest, tIf)
 TEST(SCPPTest, tWhile)
 {
   using namespace SCPP;
-  auto i = tWhile(tLeq(tIdent("a"), tInt(10)), tAssign("a", tAdd(tIdent("a"), tInt(1))));
-  EXPECT_EQ(evaluate(i), 11); /* while(a<=10) a = a + 1 */
+  auto i = tWhile(tLeq(tIdent("a"), tInt(10)), tAssign("a", tAdd(tIdent("a"), tInt(1)))); /* while(a<=10) a = a + 1 */
+  EXPECT_EQ(evaluate(i), 11);                                                             /* ==11 */
+}
+
+// Test for For Expression
+TEST(SCPPTest, tFor)
+{
+  using namespace SCPP;
+  auto i = tSeq(tFor(tAssign("a", tInt(0)), tLeq(tIdent("a"), tInt(10)), tAssign("a", tAdd(tIdent("a"), tInt(1))), tInt(0)),tIdent("a")); /* for(a=0; a<=10; a = a + 1) 0 */
+  EXPECT_EQ(evaluate(i), 11);                                                                                           /* ==0 */
+
+  auto j = tFor(tAssign("a", tInt(0)), tLeq(tIdent("a"), tInt(10)), tAssign("a", tAdd(tIdent("a"), tInt(1))), tAssign("b", tAdd(tIdent("b"), tIdent("a")))); /* for(a=0; a<=10; a = a + 1) b = b + a  */
+  EXPECT_EQ(evaluate(j), 55);                                                                                                                                /* ==55 */
+
+  auto k = tSeq(tAssign("b", tInt(1)), tFor(tAssign("a", tInt(1)), tLeq(tIdent("a"), tInt(10)), tAssign("a", tAdd(tIdent("a"), tInt(1))), tAssign("b", tMul(tIdent("b"), tIdent("a"))))); /* b = 1; for(a=1; a<=10; a = a + 1) b = b * a */
+  EXPECT_EQ(evaluate(k), 3628800);                                                                                                                                                        /* ==3628800 */
 }
 
 // Test for Sequence

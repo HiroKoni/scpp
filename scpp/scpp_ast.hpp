@@ -17,6 +17,7 @@ namespace SCPP
         Ident,  // 参照
         If,     // 条件分岐
         While,  // 繰り返し
+        For,    // 繰り返し
         Call,   // 関数呼び出し
     };
 
@@ -32,6 +33,7 @@ namespace SCPP
             struct SIdent *id;
             struct SIf *if_;
             struct SWhile *w;
+            struct SFor *f;
             struct SCall *c;
         } u;
         Expr() {}
@@ -126,6 +128,19 @@ namespace SCPP
         SWhile(struct Expr condition, struct Expr body);
     };
     SWhile::SWhile(struct Expr condition, struct Expr body) : condition(condition), body(body)
+    {
+    }
+
+    /* For */
+    struct SFor
+    {
+        struct Expr init;
+        struct Expr condition;
+        struct Expr update;
+        struct Expr body;
+        SFor(struct Expr init, struct Expr condition, struct Expr update, struct Expr body);
+    };
+    SFor::SFor(struct Expr init, struct Expr condition, struct Expr update, struct Expr body) : init(init), condition(condition), update(update), body(body)
     {
     }
 
@@ -318,6 +333,14 @@ namespace SCPP
         struct Expr expr;
         expr.type = ExprType::While;
         expr.u.w = new SWhile(condition, body);
+        return expr;
+    }
+
+    struct Expr tFor(struct Expr init, struct Expr condition, struct Expr update, struct Expr body)
+    {
+        struct Expr expr;
+        expr.type = ExprType::For;
+        expr.u.f = new SFor(init, condition, update, body);
         return expr;
     }
 

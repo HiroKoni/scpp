@@ -81,6 +81,17 @@ namespace SCPP
             }
             return result;
         }
+        case ExprType::For:
+        {
+            int result = 0;
+            evaluate(expr.u.f->init, env, functions);
+            while(evaluate(expr.u.f->condition, env, functions))
+            {
+                result = evaluate(expr.u.f->body, env, functions);
+                evaluate(expr.u.f->update, env, functions);
+            }
+            return result;
+        }
         case ExprType::Call:
         {
             try
