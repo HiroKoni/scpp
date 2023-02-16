@@ -255,7 +255,6 @@ TEST(SCPPTest, tLogic)
   auto r = tOr(tLeq(tInt(1), tInt(2)), tGt(tInt(1), tInt(0)));
   EXPECT_EQ(evaluate(r), 1); /* (1<=2 || 1>0)==1 */
 
-
   auto s = tNor(tInt(1), tInt(1));
   EXPECT_EQ(evaluate(s), 0); /* !(1NOR1)==0 */
 
@@ -324,8 +323,8 @@ TEST(SCPPTest, tWhile)
 TEST(SCPPTest, tFor)
 {
   using namespace SCPP;
-  auto i = tSeq(tFor(tAssign("a", tInt(0)), tLeq(tIdent("a"), tInt(10)), tAssign("a", tAdd(tIdent("a"), tInt(1))), tInt(0)),tIdent("a")); /* for(a=0; a<=10; a = a + 1) 0 */
-  EXPECT_EQ(evaluate(i), 11);                                                                                           /* ==0 */
+  auto i = tSeq(tFor(tAssign("a", tInt(0)), tLeq(tIdent("a"), tInt(10)), tAssign("a", tAdd(tIdent("a"), tInt(1))), tInt(0)), tIdent("a")); /* for(a=0; a<=10; a = a + 1) 0 */
+  EXPECT_EQ(evaluate(i), 11);                                                                                                              /* ==0 */
 
   auto j = tFor(tAssign("a", tInt(0)), tLeq(tIdent("a"), tInt(10)), tAssign("a", tAdd(tIdent("a"), tInt(1))), tAssign("b", tAdd(tIdent("b"), tIdent("a")))); /* for(a=0; a<=10; a = a + 1) b = b + a  */
   EXPECT_EQ(evaluate(j), 55);                                                                                                                                /* ==55 */
@@ -359,4 +358,21 @@ TEST(SCPPTest, tProgram)
       tAssign("b", tInt(2)),
       tAssign("c", tCall("max", tIdent("a"), tIdent("b"))));
   EXPECT_EQ(evaluateProgram(program2), 2); /* function max(a, b){if(a>b) return a; else return b;} a = 1; b = 2; c = max(a, b); */
+
+  auto program3 = tProgram(
+      FunctionList(
+          tFunction(
+              "isOdd",
+              ParamList("a"),
+              tIf(tEq(tMod(tIdent("a"), tInt(2)), tInt(0)), tInt(0), tInt(1))),
+          tFunction(
+              "isEven",
+              ParamList("a"),
+              tIf(tEq(tMod(tIdent("a"), tInt(2)), tInt(0)), tInt(1), tInt(0)))),
+      tAssign("a", tInt(231)),
+      tAssign("b", tInt(150)),
+      tAssign("c", tCall("isOdd", tIdent("a"))),
+      tAssign("d", tCall("isEven", tIdent("b"))),
+      tAnd(tIdent("c"), tIdent("d")));/* function isOdd(a){if(a%2==0) return 0; else return 1;} function isEven(a){if(a%2==0) return 1; else return 0;} a = 231; b = 150; c = isOdd(a); d = isEven(b); c && d; */
+  EXPECT_EQ(evaluateProgram(program3), 1); /* ==TRUE */
 }
