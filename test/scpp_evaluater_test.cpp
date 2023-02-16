@@ -78,6 +78,9 @@ TEST(SCPPTest, tDiv)
 
   auto l = tDiv(tInt(2), tInt(3));
   EXPECT_EQ(evaluate(l), 0); /* 2/3==0 */
+
+  auto m = tDiv(tInt(-73), tInt(10));
+  EXPECT_EQ(evaluate(m), -7); /* (-73)/10==-7 */
 }
 TEST(SCPPTest, ComplexBin)
 {

@@ -260,7 +260,7 @@ namespace SCPP
      * @param left 第1項の式
      * @param right 第2項の式
      * @return struct Expr 2項の除算(第1項/第2項)を表す式
-     * @note SCPPの除算において、小数点以下は切り捨てられる。
+     * @note SCPPの除算において、小数点以下は0に近くなるように切り捨てられる。
      * @note SCPPにおいて、0除算は未定義動作である。
      */
     struct Expr tDiv(struct Expr left, struct Expr right)
