@@ -11,7 +11,8 @@ var searchData=
   ['sident_15',['SIdent',['../structSCPP_1_1SIdent.html',1,'SCPP']]],
   ['sif_16',['SIf',['../structSCPP_1_1SIf.html',1,'SCPP']]],
   ['sint_17',['SInt',['../structSCPP_1_1SInt.html',1,'SCPP']]],
-  ['sprogram_18',['SProgram',['../structSCPP_1_1SProgram.html',1,'SCPP']]],
-  ['sseq_19',['SSeq',['../structSCPP_1_1SSeq.html',1,'SCPP']]],
-  ['swhile_20',['SWhile',['../structSCPP_1_1SWhile.html',1,'SCPP']]]
+  ['snot_18',['SNot',['../structSCPP_1_1SNot.html',1,'SCPP']]],
+  ['sprogram_19',['SProgram',['../structSCPP_1_1SProgram.html',1,'SCPP']]],
+  ['sseq_20',['SSeq',['../structSCPP_1_1SSeq.html',1,'SCPP']]],
+  ['swhile_21',['SWhile',['../structSCPP_1_1SWhile.html',1,'SCPP']]]
 ];

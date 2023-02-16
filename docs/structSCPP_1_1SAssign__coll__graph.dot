@@ -30,9 +30,12 @@ digraph "SCPP::SAssign"
   Node10 [label="list\< struct SCPP::\lExpr \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node11 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" i" ,fontname="Helvetica"];
   Node11 [label="SCPP::SInt",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSCPP_1_1SInt.html",tooltip=" "];
+  Node12 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" n" ,fontname="Helvetica"];
+  Node12 [label="SCPP::SNot",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSCPP_1_1SNot.html",tooltip=" "];
+  Node3 -> Node12 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" expr" ,fontname="Helvetica"];
   Node1 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" a" ,fontname="Helvetica"];
-  Node12 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" c" ,fontname="Helvetica"];
-  Node12 [label="SCPP::SCall",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSCPP_1_1SCall.html",tooltip=" "];
-  Node10 -> Node12 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" args" ,fontname="Helvetica"];
-  Node2 -> Node12 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" name" ,fontname="Helvetica"];
+  Node13 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" c" ,fontname="Helvetica"];
+  Node13 [label="SCPP::SCall",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSCPP_1_1SCall.html",tooltip=" "];
+  Node10 -> Node13 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" args" ,fontname="Helvetica"];
+  Node2 -> Node13 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" name" ,fontname="Helvetica"];
 }

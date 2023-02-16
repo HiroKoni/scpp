@@ -8,6 +8,7 @@ var structSCPP_1_1Expr =
     [ "i", "structSCPP_1_1Expr.html#ac9fca7c44034598da2e139fc1b3a68ac", null ],
     [ "id", "structSCPP_1_1Expr.html#a7d2b39b3fdb0be6249c3489a93ec2ca0", null ],
     [ "if_", "structSCPP_1_1Expr.html#ac1ca017ffa28141691f710a1d057ca63", null ],
+    [ "n", "structSCPP_1_1Expr.html#aaea9dcd052af183dd5887a0210c4dbe3", null ],
     [ "s", "structSCPP_1_1Expr.html#a4762370ecc7943a923c858bb343329cb", null ],
     [ "type", "structSCPP_1_1Expr.html#acaf3618400dfe5f0d3146cdb5128a4d7", null ],
     [ "u", "structSCPP_1_1Expr.html#a32e6ec0a064f64293df5047b37a37386", null ],

@@ -116,6 +116,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSCPP_1_1SInt.html">SCPP::SInt</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSCPP_1_1SNot.html">SCPP::SNot</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSCPP_1_1SBin.html">SCPP::SBin</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSCPP_1_1SSeq.html">SCPP::SSeq</a></td></tr>
@@ -141,16 +143,17 @@ Classes</h2></td></tr>
 Enumerations</h2></td></tr>
 <tr class="memitem:a5bd210bad18fab49acaeceafd30e721b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scpp__ast_8hpp.html#a5bd210bad18fab49acaeceafd30e721b">SCPP::ExprType</a> { <br />
 &#160;&#160;<b>Int</b>, 
+<b>SCPP::ExprType::Not</b>, 
 <b>SCPP::ExprType::Bin</b>, 
 <b>SCPP::ExprType::Seq</b>, 
-<b>SCPP::ExprType::Assign</b>, 
 <br />
-&#160;&#160;<b>SCPP::ExprType::Ident</b>, 
+&#160;&#160;<b>SCPP::ExprType::Assign</b>, 
+<b>SCPP::ExprType::Ident</b>, 
 <b>SCPP::ExprType::If</b>, 
 <b>SCPP::ExprType::While</b>, 
-<b>SCPP::ExprType::For</b>, 
 <br />
-&#160;&#160;<b>SCPP::ExprType::Call</b>
+&#160;&#160;<b>SCPP::ExprType::For</b>, 
+<b>SCPP::ExprType::Call</b>
 <br />
  }</td></tr>
 <tr class="memdesc:a5bd210bad18fab49acaeceafd30e721b"><td class="mdescLeft">&#160;</td><td class="mdescRight">式の種別を表す列挙体  <a href="scpp__ast_8hpp.html#a5bd210bad18fab49acaeceafd30e721b">More...</a><br /></td></tr>
@@ -185,6 +188,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ab0780962ca18861030ebc50da4a566cc"><td class="memItemLeft" align="right" valign="top">struct Expr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scpp__ast_8hpp.html#ab0780962ca18861030ebc50da4a566cc">SCPP::tInt</a> (int value)</td></tr>
 <tr class="memdesc:ab0780962ca18861030ebc50da4a566cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">整数型の式を作成する  <a href="scpp__ast_8hpp.html#ab0780962ca18861030ebc50da4a566cc">More...</a><br /></td></tr>
 <tr class="separator:ab0780962ca18861030ebc50da4a566cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9d370e6f950a7faff6e5f613ed0dccc"><td class="memItemLeft" align="right" valign="top">struct Expr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scpp__ast_8hpp.html#ab9d370e6f950a7faff6e5f613ed0dccc">SCPP::tNot</a> (struct Expr expr)</td></tr>
+<tr class="memdesc:ab9d370e6f950a7faff6e5f613ed0dccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">論理否定の式を作成する  <a href="scpp__ast_8hpp.html#ab9d370e6f950a7faff6e5f613ed0dccc">More...</a><br /></td></tr>
+<tr class="separator:ab9d370e6f950a7faff6e5f613ed0dccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad549f9e5e5b2bbb592d8385db7f090a3"><td class="memItemLeft" align="right" valign="top">struct Expr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scpp__ast_8hpp.html#ad549f9e5e5b2bbb592d8385db7f090a3">SCPP::tAdd</a> (struct Expr left, struct Expr right)</td></tr>
 <tr class="memdesc:ad549f9e5e5b2bbb592d8385db7f090a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">加算の式を作成する  <a href="scpp__ast_8hpp.html#ad549f9e5e5b2bbb592d8385db7f090a3">More...</a><br /></td></tr>
 <tr class="separator:ad549f9e5e5b2bbb592d8385db7f090a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1196,6 +1202,33 @@ template&lt;class... Args&gt; </div>
 <dl class="section note"><dt>Note</dt><dd>各項について、非ゼロを真、ゼロを偽と評価する。 </dd>
 <dd>
 真の場合1、偽の場合0と評価される。 </dd></dl>
+
+</div>
+</div>
+<a id="ab9d370e6f950a7faff6e5f613ed0dccc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9d370e6f950a7faff6e5f613ed0dccc">&#9670;&nbsp;</a></span>tNot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct Expr SCPP::tNot </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structSCPP_1_1Expr.html">Expr</a>&#160;</td>
+          <td class="paramname"><em>expr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>論理否定の式を作成する </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">expr</td><td>論理否定を行う式 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>struct Expr exprの論理否定を表す式 </dd></dl>
 
 </div>
 </div>

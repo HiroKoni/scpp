@@ -15,6 +15,20 @@ TEST(SCPPTest, tInt)
   EXPECT_EQ(evaluate(j), 4); /* 4==4 */
 }
 
+// Test for Unaray Operation (which is, Not)
+TEST(SCPPTest, tNot)
+{
+  using namespace SCPP;
+  auto i = tNot(tInt(1));
+  EXPECT_EQ(evaluate(i), 0); /* !1==0 */
+
+  auto j = tNot(tInt(0));
+  EXPECT_EQ(evaluate(j), 1); /* !0==1 */
+
+  auto k = tNot(tInt(-1));
+  EXPECT_EQ(evaluate(k), 0); /* !(-1)==0 */
+}
+
 // Tests for Binominal Operations
 TEST(SCPPTest, tAdd)
 {
@@ -277,6 +291,9 @@ TEST(SCPPTest, tLogic)
 
   auto ad = tXor(tInt(0), tInt(0));
   EXPECT_EQ(evaluate(ad), 0); /* (0XOR0)==0 */
+
+  auto ae = tAnd(tNot(tGt(tInt(1), tInt(2))), tGt(tInt(1), tInt(0)));
+  EXPECT_EQ(evaluate(ae), 1); /* !(1>2) && 1>0 == 1 */
 }
 
 // Test for If Expression

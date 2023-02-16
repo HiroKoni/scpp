@@ -20,6 +20,7 @@ namespace SCPP
     enum class ExprType
     {
         Int,    /// 整数型
+        Not,     /// 単項演算
         Bin,    /// 二項演算
         Seq,    /// 連接
         Assign, /// 代入
@@ -40,6 +41,7 @@ namespace SCPP
         union
         {
             struct SInt *i;
+            struct SNot *n;
             struct SBin *b;
             struct SSeq *s;
             struct SAssign *a;
@@ -59,6 +61,16 @@ namespace SCPP
         SInt(int value);
     };
     SInt::SInt(int value) : value(value)
+    {
+    }
+
+    /* Unaray Operation */
+    struct SNot
+    {
+        struct Expr expr;
+        SNot(struct Expr expr);
+    };
+    SNot::SNot(struct Expr expr) : expr(expr)
     {
     }
 
@@ -210,6 +222,20 @@ namespace SCPP
         expr.type = ExprType::Int;
         expr.u.i = new SInt(value);
         return expr;
+    }
+
+    /**
+     * @brief 論理否定の式を作成する
+     *
+     * @param expr 論理否定を行う式
+     * @return struct Expr exprの論理否定を表す式
+     */
+    struct Expr tNot(struct Expr expr)
+    {
+        struct Expr result;
+        result.type = ExprType::Not;
+        result.u.n = new SNot(expr);
+        return result;
     }
 
     /**

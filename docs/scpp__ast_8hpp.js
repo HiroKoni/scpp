@@ -2,6 +2,7 @@ var scpp__ast_8hpp =
 [
     [ "Expr", "structSCPP_1_1Expr.html", "structSCPP_1_1Expr" ],
     [ "SInt", "structSCPP_1_1SInt.html", "structSCPP_1_1SInt" ],
+    [ "SNot", "structSCPP_1_1SNot.html", "structSCPP_1_1SNot" ],
     [ "SBin", "structSCPP_1_1SBin.html", "structSCPP_1_1SBin" ],
     [ "SSeq", "structSCPP_1_1SSeq.html", "structSCPP_1_1SSeq" ],
     [ "SAssign", "structSCPP_1_1SAssign.html", "structSCPP_1_1SAssign" ],
@@ -14,6 +15,7 @@ var scpp__ast_8hpp =
     [ "SCall", "structSCPP_1_1SCall.html", "structSCPP_1_1SCall" ],
     [ "ExprType", "scpp__ast_8hpp.html#a5bd210bad18fab49acaeceafd30e721b", [
       [ "Int", "scpp__ast_8hpp.html#a5bd210bad18fab49acaeceafd30e721ba1686a6c336b71b36d77354cea19a8b52", null ],
+      [ "Not", "scpp__ast_8hpp.html#a5bd210bad18fab49acaeceafd30e721baa74c05d080620f087c4e523977230666", null ],
       [ "Bin", "scpp__ast_8hpp.html#a5bd210bad18fab49acaeceafd30e721ba807dbe7d1c25a633894d4a231b1c76d3", null ],
       [ "Seq", "scpp__ast_8hpp.html#a5bd210bad18fab49acaeceafd30e721bab28a711cf7e94ec793ef926633997529", null ],
       [ "Assign", "scpp__ast_8hpp.html#a5bd210bad18fab49acaeceafd30e721ba185b7133db22230701a857c059360cc2", null ],
@@ -63,6 +65,7 @@ var scpp__ast_8hpp =
     [ "tNand", "scpp__ast_8hpp.html#a2b87ca79e33b0cd25fb3000bafd75d3b", null ],
     [ "tNeq", "scpp__ast_8hpp.html#abd1f999a8639d05e2b23027a5b9b9077", null ],
     [ "tNor", "scpp__ast_8hpp.html#a84130377cae01b6b299c7641f2c8f882", null ],
+    [ "tNot", "scpp__ast_8hpp.html#ab9d370e6f950a7faff6e5f613ed0dccc", null ],
     [ "tOr", "scpp__ast_8hpp.html#a2bf77f118f818bd22618bea80064a5e9", null ],
     [ "tProgram", "scpp__ast_8hpp.html#a65c37978d1bdc1ce0e2fb5da5e4dc8c6", null ],
     [ "tSeq", "scpp__ast_8hpp.html#aaaf9c060856d9eff90b18f3194212108", null ],

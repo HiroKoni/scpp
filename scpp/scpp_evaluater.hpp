@@ -30,6 +30,8 @@ namespace SCPP
         {
         case ExprType::Int:
             return expr.u.i->value;
+            case ExprType::Not:
+                return !evaluate(expr.u.n->expr, env, functions);
         case ExprType::Bin:
             switch (expr.u.b->op)
             {
