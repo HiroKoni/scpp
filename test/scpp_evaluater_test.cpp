@@ -119,6 +119,20 @@ TEST(SCPPTest, tNeq)
   auto l = tNeq(tInt(1), tAdd(tInt(2), tInt(3)));
   EXPECT_EQ(evaluate(l), 1); /* (1!=(2+3))==1 */
 }
+TEST(SCPPTest, tMod){
+  using namespace SCPP;
+  auto i = tMod(tInt(1), tInt(1));
+  EXPECT_EQ(evaluate(i), 0); /* (1%1)==0 */
+
+  auto j = tMod(tInt(1), tInt(2));
+  EXPECT_EQ(evaluate(j), 1); /* (1%2)==1 */
+
+  auto k = tMod(tInt(-100), tInt(100));
+  EXPECT_EQ(evaluate(k), 0); /* ((-100)%100)==0 */
+
+  auto l = tMod(tInt(500), tInt(95));
+  EXPECT_EQ(evaluate(l), 25); /* (500%95)==25 */
+}
 TEST(SCPPTest, tLt)
 {
   using namespace SCPP;

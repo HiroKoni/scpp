@@ -3,12 +3,14 @@
 #include <iostream>
 #include <string>
 #include <map>
+
 namespace SCPP
 {
     using std::map;
     using std::string;
     map<string, int> globalVars = {};
     map<string, struct SFunction> globalFuncs = {};
+
     int evaluate(struct Expr &expr, map<string, int> &env = globalVars, map<string, struct SFunction> &functions = globalFuncs)
     {
         switch (expr.type)
@@ -26,6 +28,8 @@ namespace SCPP
                 return evaluate(expr.u.b->left, env, functions) * evaluate(expr.u.b->right, env, functions);
             case Op::Div:
                 return evaluate(expr.u.b->left, env, functions) / evaluate(expr.u.b->right, env, functions);
+            case Op::Mod:
+                return evaluate(expr.u.b->left, env, functions) % evaluate(expr.u.b->right, env, functions);
             case Op::Lt:
                 return evaluate(expr.u.b->left, env, functions) < evaluate(expr.u.b->right, env, functions);
             case Op::Leq:

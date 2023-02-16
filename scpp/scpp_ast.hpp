@@ -54,6 +54,7 @@ namespace SCPP
         Sub, // -
         Mul, // *
         Div, // /
+        Mod, // %
         Lt,  // <
         Leq, // <=
         Gt,  // >
@@ -197,6 +198,14 @@ namespace SCPP
         struct Expr expr;
         expr.type = ExprType::Bin;
         expr.u.b = new SBin(left, right, Op::Div);
+        return expr;
+    }
+
+    struct Expr tMod(struct Expr left, struct Expr right)
+    {
+        struct Expr expr;
+        expr.type = ExprType::Bin;
+        expr.u.b = new SBin(left, right, Op::Mod);
         return expr;
     }
 
