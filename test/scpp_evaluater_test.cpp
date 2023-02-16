@@ -1,4 +1,3 @@
-
 #include <gtest/gtest.h>
 #include "../scpp/scpp_ast.hpp"
 #include "../scpp/scpp_evaluater.hpp"

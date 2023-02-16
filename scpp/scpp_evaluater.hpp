@@ -1,3 +1,8 @@
+/**
+ * @file scpp_evaluater.hpp
+ * @author Konishi, Hiroto
+ * @brief Evaluater for SCPP
+ */
 #pragma once
 #include "scpp_ast.hpp"
 #include <iostream>
@@ -11,6 +16,14 @@ namespace SCPP
     map<string, int> globalVars = {};
     map<string, struct SFunction> globalFuncs = {};
 
+    /**
+     * @brief 与えられた式を評価する
+     *
+     * @param expr 評価する式
+     * @param env 変数を格納する連想配列。省略時はグローバル変数
+     * @param functions 関数を格納する連想配列。省略時はグローバル関数
+     * @return int Result 評価結果
+     */
     int evaluate(struct Expr &expr, map<string, int> &env = globalVars, map<string, struct SFunction> &functions = globalFuncs)
     {
         switch (expr.type)
@@ -119,6 +132,13 @@ namespace SCPP
         }
         return 0;
     }
+
+    /**
+     * @brief プログラムを評価する
+     *
+     * @param program 評価するプログラム
+     * @return int Result 評価結果
+     */
     int evaluateProgram(struct SProgram &program)
     {
         map<string, int> vars = {};

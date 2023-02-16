@@ -1,0 +1,38 @@
+digraph "SCPP::SAssign"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="SCPP::SAssign",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" name" ,fontname="Helvetica"];
+  Node2 [label="string",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" value" ,fontname="Helvetica"];
+  Node3 [label="SCPP::Expr",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSCPP_1_1Expr.html",tooltip="式を表す構造体"];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" f" ,fontname="Helvetica"];
+  Node4 [label="SCPP::SFor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSCPP_1_1SFor.html",tooltip=" "];
+  Node3 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" body\nupdate\ncondition\ninit" ,fontname="Helvetica"];
+  Node5 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" if_" ,fontname="Helvetica"];
+  Node5 [label="SCPP::SIf",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSCPP_1_1SIf.html",tooltip=" "];
+  Node3 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" elseClause\nthenClause\ncondition" ,fontname="Helvetica"];
+  Node6 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" b" ,fontname="Helvetica"];
+  Node6 [label="SCPP::SBin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSCPP_1_1SBin.html",tooltip=" "];
+  Node3 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" right\nleft" ,fontname="Helvetica"];
+  Node7 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" id" ,fontname="Helvetica"];
+  Node7 [label="SCPP::SIdent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSCPP_1_1SIdent.html",tooltip=" "];
+  Node2 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" name" ,fontname="Helvetica"];
+  Node8 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" w" ,fontname="Helvetica"];
+  Node8 [label="SCPP::SWhile",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSCPP_1_1SWhile.html",tooltip=" "];
+  Node3 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" body\ncondition" ,fontname="Helvetica"];
+  Node9 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" s" ,fontname="Helvetica"];
+  Node9 [label="SCPP::SSeq",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSCPP_1_1SSeq.html",tooltip=" "];
+  Node10 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" exprs" ,fontname="Helvetica"];
+  Node10 [label="list\< struct SCPP::\lExpr \>",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node11 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" i" ,fontname="Helvetica"];
+  Node11 [label="SCPP::SInt",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSCPP_1_1SInt.html",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" a" ,fontname="Helvetica"];
+  Node12 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" c" ,fontname="Helvetica"];
+  Node12 [label="SCPP::SCall",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structSCPP_1_1SCall.html",tooltip=" "];
+  Node10 -> Node12 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" args" ,fontname="Helvetica"];
+  Node2 -> Node12 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" name" ,fontname="Helvetica"];
+}
