@@ -240,6 +240,43 @@ TEST(SCPPTest, tLogic)
 
   auto r = tOr(tLeq(tInt(1), tInt(2)), tGt(tInt(1), tInt(0)));
   EXPECT_EQ(evaluate(r), 1); /* (1<=2 || 1>0)==1 */
+
+
+  auto s = tNor(tInt(1), tInt(1));
+  EXPECT_EQ(evaluate(s), 0); /* !(1NOR1)==0 */
+
+  auto t = tNor(tInt(1), tInt(0));
+  EXPECT_EQ(evaluate(t), 0); /* !(1NOR0)==0 */
+
+  auto u = tNor(tInt(0), tInt(1));
+  EXPECT_EQ(evaluate(u), 0); /* !(0NOR1)==0 */
+
+  auto v = tNor(tInt(0), tInt(0));
+  EXPECT_EQ(evaluate(v), 1); /* !(0NOR0)==1 */
+
+  auto w = tNand(tInt(1), tInt(1));
+  EXPECT_EQ(evaluate(w), 0); /* !(1NAND1)==0 */
+
+  auto x = tNand(tInt(1), tInt(0));
+  EXPECT_EQ(evaluate(x), 1); /* !(1NAND0)==1 */
+
+  auto y = tNand(tInt(0), tInt(1));
+  EXPECT_EQ(evaluate(y), 1); /* !(0NAND1)==1 */
+
+  auto z = tNand(tInt(0), tInt(0));
+  EXPECT_EQ(evaluate(z), 1); /* !(0NAND0)==1 */
+
+  auto aa = tXor(tInt(1), tInt(1));
+  EXPECT_EQ(evaluate(aa), 0); /* (1XOR1)==0 */
+
+  auto ab = tXor(tInt(1), tInt(0));
+  EXPECT_EQ(evaluate(ab), 1); /* (1XOR0)==1 */
+
+  auto ac = tXor(tInt(0), tInt(1));
+  EXPECT_EQ(evaluate(ac), 1); /* (0XOR1)==1 */
+
+  auto ad = tXor(tInt(0), tInt(0));
+  EXPECT_EQ(evaluate(ad), 0); /* (0XOR0)==0 */
 }
 
 // Test for If Expression

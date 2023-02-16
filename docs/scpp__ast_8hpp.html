@@ -164,14 +164,17 @@ Enumerations</h2></td></tr>
 &#160;&#160;<b>Mod</b>, 
 <b>And</b>, 
 <b>Or</b>, 
-<b>Lt</b>, 
+<b>Nor</b>, 
 <br />
-&#160;&#160;<b>Leq</b>, 
-<b>Gt</b>, 
+&#160;&#160;<b>Nand</b>, 
+<b>Xor</b>, 
+<b>Lt</b>, 
+<b>Leq</b>, 
+<br />
+&#160;&#160;<b>Gt</b>, 
 <b>Geq</b>, 
 <b>Eq</b>, 
-<br />
-&#160;&#160;<b>Neq</b>
+<b>Neq</b>
 <br />
  }</td></tr>
 <tr class="memdesc:ab900b57c4766fdbdfc15f4f8025a4af6"><td class="mdescLeft">&#160;</td><td class="mdescRight">二項演算の演算子を表す列挙体  <a href="scpp__ast_8hpp.html#ab900b57c4766fdbdfc15f4f8025a4af6">More...</a><br /></td></tr>
@@ -203,6 +206,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a2bf77f118f818bd22618bea80064a5e9"><td class="memItemLeft" align="right" valign="top">struct Expr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scpp__ast_8hpp.html#a2bf77f118f818bd22618bea80064a5e9">SCPP::tOr</a> (struct Expr left, struct Expr right)</td></tr>
 <tr class="memdesc:a2bf77f118f818bd22618bea80064a5e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">論理ORの式を作成する  <a href="scpp__ast_8hpp.html#a2bf77f118f818bd22618bea80064a5e9">More...</a><br /></td></tr>
 <tr class="separator:a2bf77f118f818bd22618bea80064a5e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84130377cae01b6b299c7641f2c8f882"><td class="memItemLeft" align="right" valign="top">struct Expr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scpp__ast_8hpp.html#a84130377cae01b6b299c7641f2c8f882">SCPP::tNor</a> (struct Expr left, struct Expr right)</td></tr>
+<tr class="memdesc:a84130377cae01b6b299c7641f2c8f882"><td class="mdescLeft">&#160;</td><td class="mdescRight">論理NORの式を作成する  <a href="scpp__ast_8hpp.html#a84130377cae01b6b299c7641f2c8f882">More...</a><br /></td></tr>
+<tr class="separator:a84130377cae01b6b299c7641f2c8f882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b87ca79e33b0cd25fb3000bafd75d3b"><td class="memItemLeft" align="right" valign="top">struct Expr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scpp__ast_8hpp.html#a2b87ca79e33b0cd25fb3000bafd75d3b">SCPP::tNand</a> (struct Expr left, struct Expr right)</td></tr>
+<tr class="memdesc:a2b87ca79e33b0cd25fb3000bafd75d3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">論理NANDの式を作成する  <a href="scpp__ast_8hpp.html#a2b87ca79e33b0cd25fb3000bafd75d3b">More...</a><br /></td></tr>
+<tr class="separator:a2b87ca79e33b0cd25fb3000bafd75d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad2600467ffb35ac508bb7153cddff06"><td class="memItemLeft" align="right" valign="top">struct Expr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scpp__ast_8hpp.html#aad2600467ffb35ac508bb7153cddff06">SCPP::tXor</a> (struct Expr left, struct Expr right)</td></tr>
+<tr class="memdesc:aad2600467ffb35ac508bb7153cddff06"><td class="mdescLeft">&#160;</td><td class="mdescRight">論理XORの式を作成する  <a href="scpp__ast_8hpp.html#aad2600467ffb35ac508bb7153cddff06">More...</a><br /></td></tr>
+<tr class="separator:aad2600467ffb35ac508bb7153cddff06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68c3daded0868d4f8621fade3751ecf0"><td class="memItemLeft" align="right" valign="top">struct Expr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scpp__ast_8hpp.html#a68c3daded0868d4f8621fade3751ecf0">SCPP::tLt</a> (struct Expr left, struct Expr right)</td></tr>
 <tr class="memdesc:a68c3daded0868d4f8621fade3751ecf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">比較演算（未満）の式を作成する  <a href="scpp__ast_8hpp.html#a68c3daded0868d4f8621fade3751ecf0">More...</a><br /></td></tr>
 <tr class="separator:a68c3daded0868d4f8621fade3751ecf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -459,7 +471,9 @@ template&lt;class... Args&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>struct Expr 2項の論理ANDを表す式 </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>非ゼロを真、ゼロを偽と評価する。 </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>各項について、非ゼロを真、ゼロを偽と評価する。 </dd>
+<dd>
+真の場合1、偽の場合0と評価される。 </dd></dl>
 
 </div>
 </div>
@@ -1064,6 +1078,47 @@ template&lt;class... Args&gt; </div>
 
 </div>
 </div>
+<a id="a2b87ca79e33b0cd25fb3000bafd75d3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b87ca79e33b0cd25fb3000bafd75d3b">&#9670;&nbsp;</a></span>tNand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct Expr SCPP::tNand </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structSCPP_1_1Expr.html">Expr</a>&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structSCPP_1_1Expr.html">Expr</a>&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>論理NANDの式を作成する </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left</td><td>第1項の式 </td></tr>
+    <tr><td class="paramname">right</td><td>第2項の式 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>struct Expr 2項の論理NANDを表す式 </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>各項について、非ゼロを真、ゼロを偽と評価する。 </dd>
+<dd>
+真の場合1、偽の場合0と評価される。 </dd></dl>
+
+</div>
+</div>
 <a id="abd1f999a8639d05e2b23027a5b9b9077"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abd1f999a8639d05e2b23027a5b9b9077">&#9670;&nbsp;</a></span>tNeq()</h2>
 
@@ -1103,6 +1158,47 @@ template&lt;class... Args&gt; </div>
 
 </div>
 </div>
+<a id="a84130377cae01b6b299c7641f2c8f882"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84130377cae01b6b299c7641f2c8f882">&#9670;&nbsp;</a></span>tNor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct Expr SCPP::tNor </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structSCPP_1_1Expr.html">Expr</a>&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structSCPP_1_1Expr.html">Expr</a>&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>論理NORの式を作成する </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left</td><td>第1項の式 </td></tr>
+    <tr><td class="paramname">right</td><td>第2項の式 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>struct Expr 2項の論理NORを表す式 </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>各項について、非ゼロを真、ゼロを偽と評価する。 </dd>
+<dd>
+真の場合1、偽の場合0と評価される。 </dd></dl>
+
+</div>
+</div>
 <a id="a2bf77f118f818bd22618bea80064a5e9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2bf77f118f818bd22618bea80064a5e9">&#9670;&nbsp;</a></span>tOr()</h2>
 
@@ -1138,7 +1234,9 @@ template&lt;class... Args&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>struct Expr 2項の論理ORを表す式 </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>非ゼロを真、ゼロを偽と評価する。 </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>各項について、非ゼロを真、ゼロを偽と評価する。 </dd>
+<dd>
+真の場合1、偽の場合0と評価される。 </dd></dl>
 
 </div>
 </div>
@@ -1300,6 +1398,47 @@ template&lt;class... Args&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>struct Expr while式 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>条件式が真にならない場合、0と評価される。 </dd></dl>
+
+</div>
+</div>
+<a id="aad2600467ffb35ac508bb7153cddff06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad2600467ffb35ac508bb7153cddff06">&#9670;&nbsp;</a></span>tXor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct Expr SCPP::tXor </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structSCPP_1_1Expr.html">Expr</a>&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structSCPP_1_1Expr.html">Expr</a>&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>論理XORの式を作成する </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left</td><td>第1項の式 </td></tr>
+    <tr><td class="paramname">right</td><td>第2項の式 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>struct Expr 2項の論理XORを表す式 </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>各項について、非ゼロを真、ゼロを偽と評価する。 </dd>
+<dd>
+真の場合1、偽の場合0と評価される。 </dd></dl>
 
 </div>
 </div>

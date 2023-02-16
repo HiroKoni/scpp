@@ -17,10 +17,13 @@ var searchData=
   ['tlt_35',['tLt',['../scpp__ast_8hpp.html#a68c3daded0868d4f8621fade3751ecf0',1,'SCPP']]],
   ['tmod_36',['tMod',['../scpp__ast_8hpp.html#a613a2761872a10caa5746009278ae072',1,'SCPP']]],
   ['tmul_37',['tMul',['../scpp__ast_8hpp.html#ab31355e4ca9b37aeaa1398b46e64a639',1,'SCPP']]],
-  ['tneq_38',['tNeq',['../scpp__ast_8hpp.html#abd1f999a8639d05e2b23027a5b9b9077',1,'SCPP']]],
-  ['tor_39',['tOr',['../scpp__ast_8hpp.html#a2bf77f118f818bd22618bea80064a5e9',1,'SCPP']]],
-  ['tprogram_40',['tProgram',['../scpp__ast_8hpp.html#a65c37978d1bdc1ce0e2fb5da5e4dc8c6',1,'SCPP']]],
-  ['tseq_41',['tSeq',['../scpp__ast_8hpp.html#aaaf9c060856d9eff90b18f3194212108',1,'SCPP']]],
-  ['tsub_42',['tSub',['../scpp__ast_8hpp.html#af47c295db8efe013366788efb02720e4',1,'SCPP']]],
-  ['twhile_43',['tWhile',['../scpp__ast_8hpp.html#a652118578326c707e8555291d562a002',1,'SCPP']]]
+  ['tnand_38',['tNand',['../scpp__ast_8hpp.html#a2b87ca79e33b0cd25fb3000bafd75d3b',1,'SCPP']]],
+  ['tneq_39',['tNeq',['../scpp__ast_8hpp.html#abd1f999a8639d05e2b23027a5b9b9077',1,'SCPP']]],
+  ['tnor_40',['tNor',['../scpp__ast_8hpp.html#a84130377cae01b6b299c7641f2c8f882',1,'SCPP']]],
+  ['tor_41',['tOr',['../scpp__ast_8hpp.html#a2bf77f118f818bd22618bea80064a5e9',1,'SCPP']]],
+  ['tprogram_42',['tProgram',['../scpp__ast_8hpp.html#a65c37978d1bdc1ce0e2fb5da5e4dc8c6',1,'SCPP']]],
+  ['tseq_43',['tSeq',['../scpp__ast_8hpp.html#aaaf9c060856d9eff90b18f3194212108',1,'SCPP']]],
+  ['tsub_44',['tSub',['../scpp__ast_8hpp.html#af47c295db8efe013366788efb02720e4',1,'SCPP']]],
+  ['twhile_45',['tWhile',['../scpp__ast_8hpp.html#a652118578326c707e8555291d562a002',1,'SCPP']]],
+  ['txor_46',['tXor',['../scpp__ast_8hpp.html#aad2600467ffb35ac508bb7153cddff06',1,'SCPP']]]
 ];

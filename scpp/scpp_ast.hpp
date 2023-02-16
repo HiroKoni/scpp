@@ -69,19 +69,22 @@ namespace SCPP
      */
     enum class Op
     {
-        Add, // +
-        Sub, // -
-        Mul, // *
-        Div, // /
-        Mod, // %
-        And, // &&
-        Or,  // ||
-        Lt,  // <
-        Leq, // <=
-        Gt,  // >
-        Geq, // >=
-        Eq,  // ==
-        Neq, // !=
+        Add,  // +
+        Sub,  // -
+        Mul,  // *
+        Div,  // /
+        Mod,  // %
+        And,  // &&
+        Or,   // ||
+        Nor,  // !|
+        Nand, // !&
+        Xor,  // ^^
+        Lt,   // <
+        Leq,  // <=
+        Gt,   // >
+        Geq,  // >=
+        Eq,   // ==
+        Neq,  // !=
     };
 
     struct SBin
@@ -292,7 +295,8 @@ namespace SCPP
      * @param left 第1項の式
      * @param right 第2項の式
      * @return struct Expr 2項の論理ANDを表す式
-     * @note 非ゼロを真、ゼロを偽と評価する。
+     * @note 各項について、非ゼロを真、ゼロを偽と評価する。
+     * @note 真の場合1、偽の場合0と評価される。
      */
     struct Expr tAnd(struct Expr left, struct Expr right)
     {
@@ -308,13 +312,65 @@ namespace SCPP
      * @param left 第1項の式
      * @param right 第2項の式
      * @return struct Expr 2項の論理ORを表す式
-     * @note 非ゼロを真、ゼロを偽と評価する。
+     * @note 各項について、非ゼロを真、ゼロを偽と評価する。
+     * @note 真の場合1、偽の場合0と評価される。
      */
     struct Expr tOr(struct Expr left, struct Expr right)
     {
         struct Expr expr;
         expr.type = ExprType::Bin;
         expr.u.b = new SBin(left, right, Op::Or);
+        return expr;
+    }
+
+    /**
+     * @brief 論理NORの式を作成する
+     *
+     * @param left 第1項の式
+     * @param right 第2項の式
+     * @return struct Expr 2項の論理NORを表す式
+     * @note 各項について、非ゼロを真、ゼロを偽と評価する。
+     * @note 真の場合1、偽の場合0と評価される。
+     */
+    struct Expr tNor(struct Expr left, struct Expr right)
+    {
+        struct Expr expr;
+        expr.type = ExprType::Bin;
+        expr.u.b = new SBin(left, right, Op::Nor);
+        return expr;
+    }
+
+    /**
+     * @brief 論理NANDの式を作成する
+     *
+     * @param left 第1項の式
+     * @param right 第2項の式
+     * @return struct Expr 2項の論理NANDを表す式
+     * @note 各項について、非ゼロを真、ゼロを偽と評価する。
+     * @note 真の場合1、偽の場合0と評価される。
+     */
+    struct Expr tNand(struct Expr left, struct Expr right)
+    {
+        struct Expr expr;
+        expr.type = ExprType::Bin;
+        expr.u.b = new SBin(left, right, Op::Nand);
+        return expr;
+    }
+
+    /**
+     * @brief 論理XORの式を作成する
+     *
+     * @param left 第1項の式
+     * @param right 第2項の式
+     * @return struct Expr 2項の論理XORを表す式
+     * @note 各項について、非ゼロを真、ゼロを偽と評価する。
+     * @note 真の場合1、偽の場合0と評価される。
+     */
+    struct Expr tXor(struct Expr left, struct Expr right)
+    {
+        struct Expr expr;
+        expr.type = ExprType::Bin;
+        expr.u.b = new SBin(left, right, Op::Xor);
         return expr;
     }
 

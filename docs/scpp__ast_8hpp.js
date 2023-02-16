@@ -31,6 +31,9 @@ var scpp__ast_8hpp =
       [ "Mod", "scpp__ast_8hpp.html#ab900b57c4766fdbdfc15f4f8025a4af6a7aeb0277500c86e4aa6bd23f9a737942", null ],
       [ "And", "scpp__ast_8hpp.html#ab900b57c4766fdbdfc15f4f8025a4af6ac33315685a0cba3ce53be378b3c7874b", null ],
       [ "Or", "scpp__ast_8hpp.html#ab900b57c4766fdbdfc15f4f8025a4af6a3a2d5fe857d8f9541136a124c2edec6c", null ],
+      [ "Nor", "scpp__ast_8hpp.html#ab900b57c4766fdbdfc15f4f8025a4af6a5f61fcb6e17f7a46a46a47c7977c90c1", null ],
+      [ "Nand", "scpp__ast_8hpp.html#ab900b57c4766fdbdfc15f4f8025a4af6ad39e2d62791eb0c18e0bb54315180049", null ],
+      [ "Xor", "scpp__ast_8hpp.html#ab900b57c4766fdbdfc15f4f8025a4af6a76feb79109026728a20736a8c6504548", null ],
       [ "Lt", "scpp__ast_8hpp.html#ab900b57c4766fdbdfc15f4f8025a4af6a50033c15af7795cd6617f117b29d6922", null ],
       [ "Leq", "scpp__ast_8hpp.html#ab900b57c4766fdbdfc15f4f8025a4af6abe5721bf93d718a79358217ec9b88176", null ],
       [ "Gt", "scpp__ast_8hpp.html#ab900b57c4766fdbdfc15f4f8025a4af6a086cb8308e5a36e7c4ed1f8873ad801f", null ],
@@ -57,10 +60,13 @@ var scpp__ast_8hpp =
     [ "tLt", "scpp__ast_8hpp.html#a68c3daded0868d4f8621fade3751ecf0", null ],
     [ "tMod", "scpp__ast_8hpp.html#a613a2761872a10caa5746009278ae072", null ],
     [ "tMul", "scpp__ast_8hpp.html#ab31355e4ca9b37aeaa1398b46e64a639", null ],
+    [ "tNand", "scpp__ast_8hpp.html#a2b87ca79e33b0cd25fb3000bafd75d3b", null ],
     [ "tNeq", "scpp__ast_8hpp.html#abd1f999a8639d05e2b23027a5b9b9077", null ],
+    [ "tNor", "scpp__ast_8hpp.html#a84130377cae01b6b299c7641f2c8f882", null ],
     [ "tOr", "scpp__ast_8hpp.html#a2bf77f118f818bd22618bea80064a5e9", null ],
     [ "tProgram", "scpp__ast_8hpp.html#a65c37978d1bdc1ce0e2fb5da5e4dc8c6", null ],
     [ "tSeq", "scpp__ast_8hpp.html#aaaf9c060856d9eff90b18f3194212108", null ],
     [ "tSub", "scpp__ast_8hpp.html#af47c295db8efe013366788efb02720e4", null ],
-    [ "tWhile", "scpp__ast_8hpp.html#a652118578326c707e8555291d562a002", null ]
+    [ "tWhile", "scpp__ast_8hpp.html#a652118578326c707e8555291d562a002", null ],
+    [ "tXor", "scpp__ast_8hpp.html#aad2600467ffb35ac508bb7153cddff06", null ]
 ];
