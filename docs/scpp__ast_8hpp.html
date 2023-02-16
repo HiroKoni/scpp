@@ -250,7 +250,7 @@ Functions</h2></td></tr>
 <tr class="separator:a8b7225ca76ce8b05dcb623a74c91a62f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b39ab31f0fa081a8bbb9b2578348a75"><td class="memTemplParams" colspan="2">template&lt;class... Args&gt; </td></tr>
 <tr class="memitem:a5b39ab31f0fa081a8bbb9b2578348a75"><td class="memTemplItemLeft" align="right" valign="top">struct SFunction&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="scpp__ast_8hpp.html#a5b39ab31f0fa081a8bbb9b2578348a75">SCPP::tFunction</a> (string name, list&lt; string &gt; args, Args... bodies)</td></tr>
-<tr class="memdesc:a5b39ab31f0fa081a8bbb9b2578348a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">関数定義式を作成する  <a href="scpp__ast_8hpp.html#a5b39ab31f0fa081a8bbb9b2578348a75">More...</a><br /></td></tr>
+<tr class="memdesc:a5b39ab31f0fa081a8bbb9b2578348a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">関数定義を作成する  <a href="scpp__ast_8hpp.html#a5b39ab31f0fa081a8bbb9b2578348a75">More...</a><br /></td></tr>
 <tr class="separator:a5b39ab31f0fa081a8bbb9b2578348a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca1242f68efe2031367934a990990e7a"><td class="memTemplParams" colspan="2">template&lt;class... Args&gt; </td></tr>
 <tr class="memitem:aca1242f68efe2031367934a990990e7a"><td class="memTemplItemLeft" align="right" valign="top">list&lt; string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="scpp__ast_8hpp.html#aca1242f68efe2031367934a990990e7a">SCPP::ParamList</a> (Args... args)</td></tr>
@@ -717,7 +717,7 @@ template&lt;class... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>関数定義式を作成する </p>
+<p>関数定義を作成する </p>
 <p><a class="anchor" id="tFunction"></a></p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>関数名 </td></tr>
@@ -726,7 +726,8 @@ template&lt;class... Args&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>struct Expr 関数定義式 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>struct SFunction 関数定義の構造体 </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>関数定義は式ではないことに注意してください。 </dd></dl>
 
 </div>
 </div>

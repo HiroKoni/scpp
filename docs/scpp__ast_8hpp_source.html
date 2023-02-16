@@ -454,48 +454,48 @@ $(document).ready(function(){initNavTree('scpp__ast_8hpp_source.html',''); initR
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;        }</div>
 <div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;        <span class="keywordflow">return</span> funcList;</div>
 <div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;    }</div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span>... Args&gt;</div>
-<div class="line"><a name="l00571"></a><span class="lineno"><a class="line" href="scpp__ast_8hpp.html#a5b39ab31f0fa081a8bbb9b2578348a75">  571</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structSCPP_1_1SFunction.html">SFunction</a> <a class="code" href="scpp__ast_8hpp.html#a5b39ab31f0fa081a8bbb9b2578348a75">tFunction</a>(string name, list&lt;string&gt; args, Args... bodies)</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    {</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structSCPP_1_1SFunction.html">SFunction</a>(name, args, <a class="code" href="scpp__ast_8hpp.html#aaaf9c060856d9eff90b18f3194212108">tSeq</a>(bodies...));</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    }</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160; </div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span>... Args&gt;</div>
-<div class="line"><a name="l00585"></a><span class="lineno"><a class="line" href="scpp__ast_8hpp.html#aca1242f68efe2031367934a990990e7a">  585</a></span>&#160;    list&lt;string&gt; <a class="code" href="scpp__ast_8hpp.html#aca1242f68efe2031367934a990990e7a">ParamList</a>(Args... args)</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;    {</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        list&lt;string&gt; argList;</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">string</span> arg : std::initializer_list&lt;string&gt;{args...})</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;        {</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;            argList.push_back(arg);</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        }</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;        <span class="keywordflow">return</span> argList;</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    }</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160; </div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span>... Args&gt;</div>
-<div class="line"><a name="l00604"></a><span class="lineno"><a class="line" href="scpp__ast_8hpp.html#ae111c22200f7d06008590570115b3b56">  604</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structSCPP_1_1Expr.html">Expr</a> <a class="code" href="scpp__ast_8hpp.html#ae111c22200f7d06008590570115b3b56">tCall</a>(string name, Args... args)</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    {</div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        list&lt;struct Expr&gt; exprs;</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">struct</span> <a class="code" href="structSCPP_1_1Expr.html">Expr</a> expr : std::initializer_list&lt;struct Expr&gt;{args...})</div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;        {</div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;            exprs.push_back(expr);</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;        }</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;        <span class="keyword">struct </span><a class="code" href="structSCPP_1_1Expr.html">Expr</a> expr;</div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;        expr.type = ExprType::Call;</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;        expr.u.c = <span class="keyword">new</span> <a class="code" href="structSCPP_1_1SCall.html">SCall</a>(name, exprs);</div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;        <span class="keywordflow">return</span> expr;</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    }</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160; </div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;} <span class="comment">// namespace SCPP</span></div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span>... Args&gt;</div>
+<div class="line"><a name="l00572"></a><span class="lineno"><a class="line" href="scpp__ast_8hpp.html#a5b39ab31f0fa081a8bbb9b2578348a75">  572</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structSCPP_1_1SFunction.html">SFunction</a> <a class="code" href="scpp__ast_8hpp.html#a5b39ab31f0fa081a8bbb9b2578348a75">tFunction</a>(string name, list&lt;string&gt; args, Args... bodies)</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    {</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structSCPP_1_1SFunction.html">SFunction</a>(name, args, <a class="code" href="scpp__ast_8hpp.html#aaaf9c060856d9eff90b18f3194212108">tSeq</a>(bodies...));</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    }</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160; </div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span>... Args&gt;</div>
+<div class="line"><a name="l00586"></a><span class="lineno"><a class="line" href="scpp__ast_8hpp.html#aca1242f68efe2031367934a990990e7a">  586</a></span>&#160;    list&lt;string&gt; <a class="code" href="scpp__ast_8hpp.html#aca1242f68efe2031367934a990990e7a">ParamList</a>(Args... args)</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;    {</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;        list&lt;string&gt; argList;</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">string</span> arg : std::initializer_list&lt;string&gt;{args...})</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;        {</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;            argList.push_back(arg);</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;        }</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;        <span class="keywordflow">return</span> argList;</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    }</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160; </div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span>... Args&gt;</div>
+<div class="line"><a name="l00605"></a><span class="lineno"><a class="line" href="scpp__ast_8hpp.html#ae111c22200f7d06008590570115b3b56">  605</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structSCPP_1_1Expr.html">Expr</a> <a class="code" href="scpp__ast_8hpp.html#ae111c22200f7d06008590570115b3b56">tCall</a>(string name, Args... args)</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    {</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        list&lt;struct Expr&gt; exprs;</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">struct</span> <a class="code" href="structSCPP_1_1Expr.html">Expr</a> expr : std::initializer_list&lt;struct Expr&gt;{args...})</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;        {</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;            exprs.push_back(expr);</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;        }</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;        <span class="keyword">struct </span><a class="code" href="structSCPP_1_1Expr.html">Expr</a> expr;</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;        expr.type = ExprType::Call;</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;        expr.u.c = <span class="keyword">new</span> <a class="code" href="structSCPP_1_1SCall.html">SCall</a>(name, exprs);</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;        <span class="keywordflow">return</span> expr;</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;    }</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160; </div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;} <span class="comment">// namespace SCPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="ascpp__ast_8hpp_html_a471e2c13afed193fcece64e702c4536a"><div class="ttname"><a href="scpp__ast_8hpp.html#a471e2c13afed193fcece64e702c4536a">SCPP::tFor</a></div><div class="ttdeci">struct Expr tFor(struct Expr init, struct Expr condition, struct Expr update, struct Expr body)</div><div class="ttdoc">for式を作成する</div><div class="ttdef"><b>Definition:</b> scpp_ast.hpp:513</div></div>
 <div class="ttc" id="ascpp__ast_8hpp_html_ab33479232f71cee07aae677628b4e283"><div class="ttname"><a href="scpp__ast_8hpp.html#ab33479232f71cee07aae677628b4e283">SCPP::tAssign</a></div><div class="ttdeci">struct Expr tAssign(string name, struct Expr value)</div><div class="ttdoc">変数代入式を作成する</div><div class="ttdef"><b>Definition:</b> scpp_ast.hpp:447</div></div>
-<div class="ttc" id="ascpp__ast_8hpp_html_a5b39ab31f0fa081a8bbb9b2578348a75"><div class="ttname"><a href="scpp__ast_8hpp.html#a5b39ab31f0fa081a8bbb9b2578348a75">SCPP::tFunction</a></div><div class="ttdeci">struct SFunction tFunction(string name, list&lt; string &gt; args, Args... bodies)</div><div class="ttdoc">関数定義式を作成する</div><div class="ttdef"><b>Definition:</b> scpp_ast.hpp:571</div></div>
+<div class="ttc" id="ascpp__ast_8hpp_html_a5b39ab31f0fa081a8bbb9b2578348a75"><div class="ttname"><a href="scpp__ast_8hpp.html#a5b39ab31f0fa081a8bbb9b2578348a75">SCPP::tFunction</a></div><div class="ttdeci">struct SFunction tFunction(string name, list&lt; string &gt; args, Args... bodies)</div><div class="ttdoc">関数定義を作成する</div><div class="ttdef"><b>Definition:</b> scpp_ast.hpp:572</div></div>
 <div class="ttc" id="astructSCPP_1_1SProgram_html"><div class="ttname"><a href="structSCPP_1_1SProgram.html">SCPP::SProgram</a></div><div class="ttdef"><b>Definition:</b> scpp_ast.hpp:165</div></div>
 <div class="ttc" id="astructSCPP_1_1SBin_html"><div class="ttname"><a href="structSCPP_1_1SBin.html">SCPP::SBin</a></div><div class="ttdef"><b>Definition:</b> scpp_ast.hpp:87</div></div>
 <div class="ttc" id="ascpp__ast_8hpp_html_a5bd210bad18fab49acaeceafd30e721b"><div class="ttname"><a href="scpp__ast_8hpp.html#a5bd210bad18fab49acaeceafd30e721b">SCPP::ExprType</a></div><div class="ttdeci">ExprType</div><div class="ttdoc">式の種別を表す列挙体</div><div class="ttdef"><b>Definition:</b> scpp_ast.hpp:20</div></div>
-<div class="ttc" id="ascpp__ast_8hpp_html_aca1242f68efe2031367934a990990e7a"><div class="ttname"><a href="scpp__ast_8hpp.html#aca1242f68efe2031367934a990990e7a">SCPP::ParamList</a></div><div class="ttdeci">list&lt; string &gt; ParamList(Args... args)</div><div class="ttdoc">引数のリストを作成する</div><div class="ttdef"><b>Definition:</b> scpp_ast.hpp:585</div></div>
-<div class="ttc" id="ascpp__ast_8hpp_html_ae111c22200f7d06008590570115b3b56"><div class="ttname"><a href="scpp__ast_8hpp.html#ae111c22200f7d06008590570115b3b56">SCPP::tCall</a></div><div class="ttdeci">struct Expr tCall(string name, Args... args)</div><div class="ttdoc">関数呼び出し式を作成する</div><div class="ttdef"><b>Definition:</b> scpp_ast.hpp:604</div></div>
+<div class="ttc" id="ascpp__ast_8hpp_html_aca1242f68efe2031367934a990990e7a"><div class="ttname"><a href="scpp__ast_8hpp.html#aca1242f68efe2031367934a990990e7a">SCPP::ParamList</a></div><div class="ttdeci">list&lt; string &gt; ParamList(Args... args)</div><div class="ttdoc">引数のリストを作成する</div><div class="ttdef"><b>Definition:</b> scpp_ast.hpp:586</div></div>
+<div class="ttc" id="ascpp__ast_8hpp_html_ae111c22200f7d06008590570115b3b56"><div class="ttname"><a href="scpp__ast_8hpp.html#ae111c22200f7d06008590570115b3b56">SCPP::tCall</a></div><div class="ttdeci">struct Expr tCall(string name, Args... args)</div><div class="ttdoc">関数呼び出し式を作成する</div><div class="ttdef"><b>Definition:</b> scpp_ast.hpp:605</div></div>
 <div class="ttc" id="ascpp__ast_8hpp_html_aea7f230c120822ee2e06c862f661ceff"><div class="ttname"><a href="scpp__ast_8hpp.html#aea7f230c120822ee2e06c862f661ceff">SCPP::tEq</a></div><div class="ttdeci">struct Expr tEq(struct Expr left, struct Expr right)</div><div class="ttdoc">比較演算（等しい）の式を作成する</div><div class="ttdef"><b>Definition:</b> scpp_ast.hpp:393</div></div>
 <div class="ttc" id="astructSCPP_1_1SInt_html"><div class="ttname"><a href="structSCPP_1_1SInt.html">SCPP::SInt</a></div><div class="ttdef"><b>Definition:</b> scpp_ast.hpp:56</div></div>
 <div class="ttc" id="astructSCPP_1_1SIf_html"><div class="ttname"><a href="structSCPP_1_1SIf.html">SCPP::SIf</a></div><div class="ttdef"><b>Definition:</b> scpp_ast.hpp:129</div></div>
