@@ -30,6 +30,10 @@ namespace SCPP
                 return evaluate(expr.u.b->left, env, functions) / evaluate(expr.u.b->right, env, functions);
             case Op::Mod:
                 return evaluate(expr.u.b->left, env, functions) % evaluate(expr.u.b->right, env, functions);
+            case Op::And:
+                return evaluate(expr.u.b->left, env, functions) && evaluate(expr.u.b->right, env, functions);
+            case Op::Or:
+                return evaluate(expr.u.b->left, env, functions) || evaluate(expr.u.b->right, env, functions);
             case Op::Lt:
                 return evaluate(expr.u.b->left, env, functions) < evaluate(expr.u.b->right, env, functions);
             case Op::Leq:

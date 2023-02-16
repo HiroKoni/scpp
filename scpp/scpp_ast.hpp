@@ -55,6 +55,8 @@ namespace SCPP
         Mul, // *
         Div, // /
         Mod, // %
+        And, // &&
+        Or,  // ||
         Lt,  // <
         Leq, // <=
         Gt,  // >
@@ -206,6 +208,22 @@ namespace SCPP
         struct Expr expr;
         expr.type = ExprType::Bin;
         expr.u.b = new SBin(left, right, Op::Mod);
+        return expr;
+    }
+
+    struct Expr tAnd(struct Expr left, struct Expr right)
+    {
+        struct Expr expr;
+        expr.type = ExprType::Bin;
+        expr.u.b = new SBin(left, right, Op::And);
+        return expr;
+    }
+
+    struct Expr tOr(struct Expr left, struct Expr right)
+    {
+        struct Expr expr;
+        expr.type = ExprType::Bin;
+        expr.u.b = new SBin(left, right, Op::Or);
         return expr;
     }
 

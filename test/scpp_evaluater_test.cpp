@@ -205,6 +205,39 @@ TEST(SCPPTest, tGeq)
   auto m = tGeq(tInt(1), tInt(0));
   EXPECT_EQ(evaluate(m), 1); /* (1>=0)==1 */
 }
+TEST(SCPPTest, tLogic)
+{
+  using namespace SCPP;
+  auto i = tAnd(tInt(1), tInt(1));
+  EXPECT_EQ(evaluate(i), 1); /* (1&&1)==1 */
+
+  auto j = tAnd(tInt(1), tInt(0));
+  EXPECT_EQ(evaluate(j), 0); /* (1&&0)==0 */
+
+  auto k = tAnd(tInt(0), tInt(1));
+  EXPECT_EQ(evaluate(k), 0); /* (0&&1)==0 */
+
+  auto l = tAnd(tInt(0), tInt(0));
+  EXPECT_EQ(evaluate(l), 0); /* (0&&0)==0 */
+
+  auto m = tAnd(tLeq(tInt(1), tInt(2)), tGt(tInt(1), tInt(0)));
+  EXPECT_EQ(evaluate(m), 1); /* (1<=2 && 1>0)==1 */
+
+  auto n = tOr(tInt(1), tInt(1));
+  EXPECT_EQ(evaluate(n), 1); /* (1||1)==1 */
+
+  auto o = tOr(tInt(1), tInt(0));
+  EXPECT_EQ(evaluate(o), 1); /* (1||0)==1 */
+
+  auto p = tOr(tInt(0), tInt(1));
+  EXPECT_EQ(evaluate(p), 1); /* (0||1)==1 */
+
+  auto q = tOr(tInt(0), tInt(0));
+  EXPECT_EQ(evaluate(q), 0); /* (0||0)==0 */
+
+  auto r = tOr(tLeq(tInt(1), tInt(2)), tGt(tInt(1), tInt(0)));
+  EXPECT_EQ(evaluate(r), 1); /* (1<=2 || 1>0)==1 */
+}
 
 // Test for If Expression
 TEST(SCPPTest, tIf)
