@@ -5,6 +5,8 @@ SCPP(SCripting language in c Plus Plus) は、C++で動作する、抽象構文�
 
 このプログラムは、筑波大学2022年度GB27001「ソフトウェアサイエンス特別講義A」の提出課題です。同授業内で解説された、[minis](https://github.com/kmizu/minis)を参考にして作成されています。
 
+[Webドキュメント](https://hirokoni.github.io/scpp/)が利用可能です。
+
 ## 環境
 C++17で動作します。
 

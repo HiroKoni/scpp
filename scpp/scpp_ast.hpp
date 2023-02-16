@@ -560,12 +560,13 @@ namespace SCPP
     }
     /**
      * @anchor tFunction
-     * @brief 関数定義式を作成する
+     * @brief 関数定義を作成する
      *
      * @param name 関数名
      * @param args 引数の変数名のリスト
      * @param body 関数本体が含む式を実行順に並べる
-     * @return struct Expr 関数定義式
+     * @return struct SFunction 関数定義の構造体
+     * @note 関数定義は式ではないことに注意してください。
      */
     template <class... Args>
     struct SFunction tFunction(string name, list<string> args, Args... bodies)
