@@ -193,10 +193,10 @@ tCall("f", tInt(1), tInt(2), tInt(3)); // f(1, 2, 3)
 evaluate()関数に、評価したい式を引数として渡すと、その式の評価結果がC++の`int`型として返されます。
 
 ```cpp
-SCPP::Expr expr = tAdd(tInt(1), tInt(2));
-int result = evaluate(expr);
+auto expression = tAdd(tInt(1),tInt(5)); /* 1+5 */
+cout << evaluate(expression) << std::endl; /* evaluate the expression */
 ```
-この例では、`1+2`の評価結果である`3`が返されます。
+この例では、`1+5`の評価結果である`6`が返され、標準出力に出力されます。
 
 ### プログラムの記述
 プログラム機能を用いると、独自の関数を定義し、それを用いたプログラムを記述することができます。
@@ -263,22 +263,20 @@ FunctionList(
 
 ```cpp
 auto program = tProgram(
-      FunctionList(
-          tFunction(
-              "isOdd",
-              ParamList("a"),
-              tIf(tEq(tMod(tIdent("a"), tInt(2)), tInt(0)), tInt(0), tInt(1))),
-          tFunction(
-              "isEven",
-              ParamList("a"),
-              tIf(tEq(tMod(tIdent("a"), tInt(2)), tInt(0)), tInt(1), tInt(0)))),
-      tAssign("a", tInt(231)),
-      tAssign("b", tInt(150)),
-      tAssign("c", tCall("isOdd", tIdent("a"))),
-      tAssign("d", tCall("isEven", tIdent("b"))),
-      tAnd(tIdent("c"), tIdent("d"))
-);/* function isOdd(a){if(a%2==0) return 0; else return 1;} function isEven(a){if(a%2==0) return 1; else return 0;} a = 231; b = 150; c = isOdd(a); d = isEven(b); c && d; */
-int result = evaluateProgram(program);
+    FunctionList(
+        tFunction(
+            "isOdd",
+            ParamList("a"),
+            tIf(tEq(tMod(tIdent("a"), tInt(2)), tInt(0)), tInt(0), tInt(1))),
+        tFunction(
+            "isEven",
+            ParamList("a"),
+            tIf(tEq(tMod(tIdent("a"), tInt(2)), tInt(0)), tInt(1), tInt(0)))),
+    tAssign("a", tInt(231)),
+    tAssign("b", tInt(150)),
+    tAssign("c", tCall("isOdd", tIdent("a"))),
+    tAssign("d", tCall("isEven", tIdent("b"))),
+    tAnd(tIdent("c"), tIdent("d"))); /* function isOdd(a){if(a%2==0) return 0; else return 1;} function isEven(a){if(a%2==0) return 1; else return 0;} a = 231; b = 150; c = isOdd(a); d = isEven(b); c && d; */
+
+cout << evaluateProgram(program) << std::endl;/* evaluate the program */
 ```
-
-
