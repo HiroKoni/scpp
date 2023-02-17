@@ -1,4 +1,6 @@
 ## SCPPの使い方
+[Webドキュメント「SCPPの使い方」](https://hirokoni.github.io/scpp/md_usage.html)で、名前空間や関数の解説ページへのリンクが貼られたドキュメントを閲覧できます。
+
 ### セットアップ
 SCPPは、C++17で動作します。
 SCPPを使用するためには、`scpp_ast.hpp`と`scpp_evaluater.hpp`の2ファイルをincludeしなければいけません。
