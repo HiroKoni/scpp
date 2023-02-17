@@ -126,8 +126,8 @@ $(document).ready(function(){initNavTree('md_usage.html',''); initResizable(); }
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="scpp__evaluater_8hpp.html">scpp_evaluater.hpp</a>&quot;</span></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md7"></a>
 SCPPの構文</h2>
-<p>SCPPは、整数型を用い、プログラムは式（の組み合わせ）によって記述されます。 式は、<code><a class="el" href="structSCPP_1_1Expr.html" title="式を表す構造体">SCPP::Expr</a></code> 構造体のインスタンスとして表現されます。</p>
-<p>プログラムの記述に用いる関数は、名前空間<code>SCPP</code>に定義されています。 </p><div class="fragment"><div class="line"><span class="keyword">using namespace </span>SCPP;</div>
+<p>SCPPは、整数型を用い、スクリプトは式（の組み合わせ）によって記述されます。 式は、<code><a class="el" href="structSCPP_1_1Expr.html" title="式を表す構造体">SCPP::Expr</a></code> 構造体のインスタンスとして表現されます。</p>
+<p>SCPPの記述に用いる関数は、名前空間<code>SCPP</code>に定義されています。 </p><div class="fragment"><div class="line"><span class="keyword">using namespace </span>SCPP;</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
 式の記述</h2>
 <h3><a class="anchor" id="autotoc_md9"></a>
@@ -230,7 +230,8 @@ for式</h4>
 <p><a class="el" href="scpp__evaluater_8hpp.html#abbd10b32cb0c11b64b43b0bb0aad7c26" title="与えられた式を評価する">evaluate()</a>関数に、評価したい式を引数として渡すと、その式の評価結果がC++の<code>int</code>型として返されます。</p>
 <div class="fragment"><div class="line"><a class="code" href="structSCPP_1_1Expr.html">SCPP::Expr</a> expr = <a class="code" href="scpp__ast_8hpp.html#ad549f9e5e5b2bbb592d8385db7f090a3">tAdd</a>(<a class="code" href="scpp__ast_8hpp.html#ab0780962ca18861030ebc50da4a566cc">tInt</a>(1), <a class="code" href="scpp__ast_8hpp.html#ab0780962ca18861030ebc50da4a566cc">tInt</a>(2));</div>
 <div class="line"><span class="keywordtype">int</span> result = <a class="code" href="scpp__evaluater_8hpp.html#abbd10b32cb0c11b64b43b0bb0aad7c26">evaluate</a>(expr);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md26"></a>
+</div><!-- fragment --><p>この例では、<code>1+2</code>の評価結果である<code>3</code>が返されます。</p>
+<h2><a class="anchor" id="autotoc_md26"></a>
 プログラムの記述</h2>
 <p>プログラム機能を用いると、独自の関数を定義し、それを用いたプログラムを記述することができます。</p>
 <p>プログラム内で宣言された変数・関数のスコープは、そのプログラム内です。</p>
