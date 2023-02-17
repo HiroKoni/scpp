@@ -611,7 +611,7 @@ namespace SCPP
      * @brief  一つのプログラムを表す構造体を作成する
      *
      * @tparam Args struct Exprの可変長引数
-     * @param functions 関数定義式のリスト。 @ref FunctionList "Function List" を用いて作成することを推奨する。
+     * @param functions 関数定義式のリスト。 FunctoinList() を用いて作成することを推奨する。
      * @param bodies 式を実行したい順に並べる
      * @return struct SProgram 一つのプログラムを表す構造体
      * @note 同名の関数を定義した場合、後に定義された関数が優先される。
@@ -630,12 +630,11 @@ namespace SCPP
     }
 
     /**
-     * @anchor FunctionList
-     * @brief 関数定義式のリストを作成する
+     * @brief 関数リストを作成する
      *
      * @tparam Args struct SFunctionの可変長引数
-     * @param functions 関数定義式を並べる。個々の関数定義式は、 @ref tFunction "tFunction" を用いて作成できる。
-     * @return list<struct SFunction> 関数定義式のリスト
+     * @param functions 関数構造体を並べる。個々の関数構造体は、 tFunction() を用いて作成できる。
+     * @return list<struct SFunction> 関数構造体のリスト
      * @note 引数が与えられない場合、空のリストを返す。
      */
     template <class... Args>
@@ -649,7 +648,6 @@ namespace SCPP
         return funcList;
     }
     /**
-     * @anchor tFunction
      * @brief 関数定義を作成する
      *
      * @param name 関数名

@@ -28,6 +28,7 @@ var NAVTREE =
       [ "開発に用いた環境", "index.html#autotoc_md3", null ]
     ] ],
     [ "主要な仕様", "index.html#autotoc_md4", null ],
+    [ "SCPPの使い方", "md_usage.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ]

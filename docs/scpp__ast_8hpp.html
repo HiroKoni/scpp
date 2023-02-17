@@ -276,7 +276,7 @@ Functions</h2></td></tr>
 <tr class="separator:a65c37978d1bdc1ce0e2fb5da5e4dc8c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b7225ca76ce8b05dcb623a74c91a62f"><td class="memTemplParams" colspan="2">template&lt;class... Args&gt; </td></tr>
 <tr class="memitem:a8b7225ca76ce8b05dcb623a74c91a62f"><td class="memTemplItemLeft" align="right" valign="top">list&lt; struct SFunction &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="scpp__ast_8hpp.html#a8b7225ca76ce8b05dcb623a74c91a62f">SCPP::FunctionList</a> (Args... functions)</td></tr>
-<tr class="memdesc:a8b7225ca76ce8b05dcb623a74c91a62f"><td class="mdescLeft">&#160;</td><td class="mdescRight">関数定義式のリストを作成する  <a href="scpp__ast_8hpp.html#a8b7225ca76ce8b05dcb623a74c91a62f">More...</a><br /></td></tr>
+<tr class="memdesc:a8b7225ca76ce8b05dcb623a74c91a62f"><td class="mdescLeft">&#160;</td><td class="mdescRight">関数リストを作成する  <a href="scpp__ast_8hpp.html#a8b7225ca76ce8b05dcb623a74c91a62f">More...</a><br /></td></tr>
 <tr class="separator:a8b7225ca76ce8b05dcb623a74c91a62f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b39ab31f0fa081a8bbb9b2578348a75"><td class="memTemplParams" colspan="2">template&lt;class... Args&gt; </td></tr>
 <tr class="memitem:a5b39ab31f0fa081a8bbb9b2578348a75"><td class="memTemplItemLeft" align="right" valign="top">struct SFunction&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="scpp__ast_8hpp.html#a5b39ab31f0fa081a8bbb9b2578348a75">SCPP::tFunction</a> (string name, list&lt; string &gt; args, Args... bodies)</td></tr>
@@ -362,8 +362,8 @@ template&lt;class... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>関数定義式のリストを作成する </p>
-<p><a class="anchor" id="FunctionList"></a></p><dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>関数リストを作成する </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Args</td><td>struct SFunctionの可変長引数 </td></tr>
   </table>
@@ -371,11 +371,11 @@ template&lt;class... Args&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">functions</td><td>関数定義式を並べる。個々の関数定義式は、 <a class="el" href="scpp__ast_8hpp.html#tFunction">tFunction</a> を用いて作成できる。 </td></tr>
+    <tr><td class="paramname">functions</td><td>関数構造体を並べる。個々の関数構造体は、 <a class="el" href="scpp__ast_8hpp.html#a5b39ab31f0fa081a8bbb9b2578348a75" title="関数定義を作成する">tFunction()</a> を用いて作成できる。 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>list&lt;struct SFunction&gt; 関数定義式のリスト </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>list&lt;struct SFunction&gt; 関数構造体のリスト </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>引数が与えられない場合、空のリストを返す。 </dd></dl>
 
 </div>
@@ -750,7 +750,7 @@ template&lt;class... Args&gt; </div>
 </div><div class="memdoc">
 
 <p>関数定義を作成する </p>
-<p><a class="anchor" id="tFunction"></a></p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>関数名 </td></tr>
     <tr><td class="paramname">args</td><td>引数の変数名のリスト </td></tr>
@@ -1322,7 +1322,7 @@ template&lt;class... Args&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">functions</td><td>関数定義式のリスト。 <a class="el" href="scpp__ast_8hpp.html#FunctionList">Function List</a> を用いて作成することを推奨する。 </td></tr>
+    <tr><td class="paramname">functions</td><td>関数定義式のリスト。 FunctoinList() を用いて作成することを推奨する。 </td></tr>
     <tr><td class="paramname">bodies</td><td>式を実行したい順に並べる </td></tr>
   </table>
   </dd>
