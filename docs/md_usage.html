@@ -86,7 +86,41 @@ $(document).ready(function(){initNavTree('md_usage.html',''); initResizable(); }
 <div class="title">SCPPの使い方 </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2><a class="anchor" id="autotoc_md6"></a>
+<div class="toc"><h3>Table of Contents</h3>
+<ul><ul><li class="level2"><a href="#autotoc_md6">セットアップ</a></li>
+<li class="level2"><a href="#autotoc_md7">SCPPの構文</a></li>
+<li class="level2"><a href="#autotoc_md8">式の記述</a><ul><li class="level3"><a href="#autotoc_md9">整数型</a></li>
+<li class="level3"><a href="#autotoc_md10">四則演算</a></li>
+<li class="level3"><a href="#autotoc_md11">mod式</a></li>
+<li class="level3"><a href="#autotoc_md12">比較演算</a></li>
+<li class="level3"><a href="#autotoc_md13">論理演算</a><ul><li class="level4"><a href="#autotoc_md14">単項論理演算</a></li>
+<li class="level4"><a href="#autotoc_md15">二項論理演算</a></li>
+</ul>
+</li>
+<li class="level3"><a href="#autotoc_md16">条件分岐式</a></li>
+<li class="level3"><a href="#autotoc_md17">変数</a><ul><li class="level4"><a href="#autotoc_md18">変数代入式</a></li>
+<li class="level4"><a href="#autotoc_md19">変数参照式</a></li>
+</ul>
+</li>
+<li class="level3"><a href="#autotoc_md20">連接式</a></li>
+<li class="level3"><a href="#autotoc_md21">繰り返し</a><ul><li class="level4"><a href="#autotoc_md22">while式</a></li>
+<li class="level4"><a href="#autotoc_md23">for式</a></li>
+</ul>
+</li>
+<li class="level3"><a href="#autotoc_md24">関数呼び出し式</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#autotoc_md25">式の評価</a></li>
+<li class="level2"><a href="#autotoc_md26">プログラムの記述</a><ul><li class="level3"><a href="#autotoc_md27">プログラム構造体の作成</a></li>
+<li class="level3"><a href="#autotoc_md28">関数の定義</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#autotoc_md29">プログラムの実行</a></li>
+</ul>
+</ul>
+</div>
+<div class="textblock"><p><a href="https://hirokoni.github.io/scpp/md_usage.html">Webドキュメント「SCPPの使い方」</a>で、名前空間や関数の解説ページへのリンクが貼られたドキュメントを閲覧できます。</p>
+<h2><a class="anchor" id="autotoc_md6"></a>
 セットアップ</h2>
 <p>SCPPは、C++17で動作します。 SCPPを使用するためには、<code><a class="el" href="scpp__ast_8hpp.html" title="Abstract Syntax Tree for SCPP.">scpp_ast.hpp</a></code>と<code><a class="el" href="scpp__evaluater_8hpp.html" title="Evaluater for SCPP.">scpp_evaluater.hpp</a></code>の2ファイルをincludeしなければいけません。 </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="scpp__ast_8hpp.html">scpp_ast.hpp</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="scpp__evaluater_8hpp.html">scpp_evaluater.hpp</a>&quot;</span></div>
