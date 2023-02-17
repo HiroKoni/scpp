@@ -128,7 +128,10 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <li>真偽を評価する際、ゼロは偽、非ゼロは真として扱われます。</li>
 <li><code>While</code>式及び<code>For</code>式において、条件式が満たされることがない場合、その式は0と評価されます。</li>
 <li>変数と関数は、別の環境で管理されるため、同名の変数と関数を同時に定義することができます。</li>
-<li>プログラム<code>SProgram</code>内で定義された変数のスコープは、そのプログラム全体です。それ以外の変数は、全てグローバル変数です。 </li>
+<li>プログラム<code>SProgram</code>内で定義された変数のスコープは、そのプログラム全体です。それ以外の変数は、全てグローバル変数です。<ul>
+<li>プログラム内では、グローバル変数を参照することはできません </li>
+</ul>
+</li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
