@@ -1,10 +1,10 @@
 # SCPP
 
-SCPP(SCripting language in c Plus Plus) is a simple programming language that runs on C++ using AST(abstract syntax tree).
+SCPP(SCripting language in c Plus Plus) is a simple programming language using AST(abstract syntax tree) that runs on C++.
 
-This program was created as a homework for the course "Special Lecture on Software Science A" at University of Tsukuba in Academic Year 2022. It was created based on [minis](https://github.com/kmizu/minis), which was explained in the class.
+I developped this as a homework for the course "Special Lecture on Software Science A"(GB27001 in AY2022) at University of Tsukuba. The program is based on [minis](https://github.com/kmizu/minis), which was explained in class.
 
-Brief introduction of usage is available in [the Web Doc](https://hirokoni.github.io/scpp/md_usage.html) (in Japanese).
+A brief introduction of usage is available in [the Web Doc](https://hirokoni.github.io/scpp/md_usage.html) (in Japanese).
 
 ## Features
 It supports:
