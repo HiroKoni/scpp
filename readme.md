@@ -1,5 +1,7 @@
 # SCPP
 
+*English information is provided in [readme_en.md](./readme_en.md)*
+
 - [GitHub リポジトリ](https://github.com/HiroKoni/scpp)
 - [Webドキュメント](https://hirokoni.github.io/scpp/)
 
